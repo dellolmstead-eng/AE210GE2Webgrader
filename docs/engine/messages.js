@@ -98,10 +98,10 @@ export const STRINGS = {
     over187: "-1 Point Recurring cost exceeds threshold for 187-aircraft case ($115M): $%.1fM",
     obj187: "Recurring cost meets objective for 187-aircraft case (≤$100M): $%.1fM",
     over800: "-1 Point Recurring cost exceeds threshold for 800-aircraft case ($75M): $%.1fM",
-    obj800: "Recurring cost meets objective for 800-aircraft case (≤$63M): $%.1fM",
+    obj800: "Recurring cost meets objective for 800-aircraft case (≤$61M): $%.1fM",
   },
   gear: {
-    nose: "Violates nose gear 90/10 rule: %.1f% (must be between 10% and 20%)",
+    nose: "Violates main gear 90/10 rule share at J20: %.1f% (must be between 80.0% and 90.5%)",
     tipback: "Violates tipback angle requirement: upper %.2f° must be less than lower %.2f°",
     rollover: "Violates rollover angle requirement: upper %.2f° must be less than lower %.2f°",
     rotationAuthority: "Violates takeoff rotation speed: %.1f kts (must be < %.1f kts)",

@@ -21,7 +21,7 @@ export function runRecurringCostChecks(workbook) {
     if (cost != null && cost > 75) {
       feedback.push(format(STRINGS.cost.over800, cost));
       costDelta -= 1;
-    } else if (cost != null && cost <= 63) {
+    } else if (cost != null && cost <= 61) {
       feedback.push(format(STRINGS.cost.obj800, cost));
     }
   } else {

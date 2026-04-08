@@ -11,8 +11,8 @@ export function runLandingGearChecks(workbook) {
   const gearTolAngle = 0.1;
   const gearTolSpeed = 0.5;
 
-  const noseRule = asNumber(getCell(gear, "J19"));
-  if (Number.isFinite(noseRule) && (noseRule < 10 - gearTolPercent || noseRule > 20 + gearTolPercent)) {
+  const noseRule = asNumber(getCell(gear, "J20"));
+  if (Number.isFinite(noseRule) && (noseRule < 80 - gearTolPercent || noseRule > 90.5 + gearTolPercent)) {
     feedback.push(format(STRINGS.gear.nose, noseRule));
     good = false;
   }

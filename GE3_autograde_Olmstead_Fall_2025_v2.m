@@ -134,7 +134,7 @@ logFilePath = fullfile(folderAnalyzed, ['textout_', timestamp, '.txt']);
 finalout = fopen(logFilePath,'w');
 
 % Log file header
-fprintf(finalout, 'GE3 Autograder Log\n');
+fprintf(finalout, 'GE2 Autograder Log\n');
 fprintf(finalout, 'Script Name: %s.m\n', mfilename);
 fprintf(finalout, 'Run Date: %s\n', string(datetime('now', 'Format', 'yyyy-MM-dd HH:mm:ss')));
 fprintf(finalout, 'Analyzed Folder: %s\n', folderAnalyzed);
@@ -1052,7 +1052,7 @@ elseif numAircraft == 800
         logText = logf(logText, '-1 Point Recurring cost exceeds threshold for 800-aircraft case ($75M): $%.1fM\n', cost);
         costDeduction = costDeduction + 1;
     elseif cost <= 63
-        logText = logf(logText, 'Recurring cost meets objective for 800-aircraft case (≤$63M): $%.1fM\n', cost);
+        logText = logf(logText, 'Recurring cost meets objective for 800-aircraft case (≤$61M): $%.1fM\n', cost);
     end
 else
     logText = logf(logText, '-1 Point %.0f is not a valid number of aircraft (must be 187 or 800) for cost estimation\n', numAircraft);
@@ -1073,9 +1073,9 @@ gearTolPercent = 0.5;
 gearTolAngle = 0.1;
 gearTolSpeed = 0.5;
 
-gearNoseWeight = Gear(19, 10);
-if isnan(gearNoseWeight) || gearNoseWeight < 10 - gearTolPercent || gearNoseWeight > 20 + gearTolPercent
-    logText = logf(logText, 'Violates nose gear 90/10 rule: %.1f%% (must be between 10%% and 20%%)\n', gearNoseWeight);
+gearNoseWeight = Gear(20, 10);
+if isnan(gearNoseWeight) || gearNoseWeight < 80 - gearTolPercent || gearNoseWeight > 90.5 + gearTolPercent
+    logText = logf(logText, 'Violates main gear 90/10 rule share at J20: %.1f%% (must be between 80.0%% and 90.5%%)\n', gearNoseWeight);
     LandingGearGood = 0;
 end
 
@@ -1138,7 +1138,7 @@ sheets.Main   = safeReadMatrix(filename, 'Main',   {'T3','U3','V3','W3','X3','Y3
     'O10','P10','Q10','O18','X40','Q23','Q31','N31','B32','C23','H23','C26',...
     'H27','H29','I29','F31','F32','B34','E34','B53','E53','D18','D23','D52','F52','H24','E52'});
 sheets.Consts = safeReadMatrix(filename, 'Consts', {'K22','K23','K24','K26','K27','K28','K29','K32','AO42','AQ41','K33'});
-sheets.Gear   = safeReadMatrix(filename, 'Gear',   {'J19','L20','L21','M20','M21','N20','N21'});
+sheets.Gear   = safeReadMatrix(filename, 'Gear',   {'J20','L20','L21','M20','M21','N20','N21'});
 sheets.Geom   = safeReadMatrix(filename, 'Geom',   {'C8','C10','L38','L40','L41','L115','L116','L117','L118','L152','M152','L153','L154','L155','L163','L164','L165','L166'});
 
 % Constants is off by three rows. Row 22 of the Consts tab comes in as
@@ -1399,11 +1399,11 @@ uicontrol('Parent', d, ...
         delete(dialogHandle);
         if shouldExport
             %% Create Blackboard Offline Grade CSV (SMART_TEXT format)
-            csvFilename = fullfile(folderAnalyzed, ['GE3_Blackboard_Offline_', timestamp, '.csv']);
+            csvFilename = fullfile(folderAnalyzed, ['GE2_Blackboard_Offline_', timestamp, '.csv']);
             fid = fopen(csvFilename, 'w');
 
             % Assignment title column (update if needed)
-            assignmentTitle = 'GE 3: AATF Design Iteration 1 & Cutout [Total Pts: 15 Score] |409578';
+            assignmentTitle = 'GE 2: AATF Design Iteration 1 & Cutout [Total Pts: 15 Score] |409578';
 
             % Write header (username only for identification)
             fprintf(fid, '"Username","%s","Grading Notes","Notes Format","Feedback to Learner","Feedback Format"\n', assignmentTitle);

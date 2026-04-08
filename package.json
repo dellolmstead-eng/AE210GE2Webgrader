@@ -1,7 +1,7 @@
 {
   "name": "ae210-ge3-webgrader",
   "version": "2.0.0",
-  "description": "Browser grader for AE210 GE3 Jet11 submissions (iteration 1 and cutout). Mirrors the MATLAB GE3 autograder logic.",
+  "description": "Browser grader for AE210 GE2 Jet11 submissions (iteration 1 and cutout). Mirrors the MATLAB GE3 autograder logic.",
   "main": "index.js",
   "directories": {
     "doc": "docs"

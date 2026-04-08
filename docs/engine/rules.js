@@ -1,5 +1,5 @@
 export const RULES = {
-  versionLabel: "AE210GE3Webgrader v2.0",
+  versionLabel: "AE210GE2Webgrader v2.0",
   matlabVersion: "GE3_autograde_Olmstead_Fall_2025_v2",
   sheets: {
     Aero: {
@@ -37,7 +37,7 @@ export const RULES = {
       fallbackCells: ["K22", "K23", "K24", "K26", "K27", "K28", "K29", "K32", "AO42", "AQ41", "K33"],
     },
     Gear: {
-      fallbackCells: ["J19", "L19", "L20", "M19", "M20", "N19", "N20"],
+      fallbackCells: ["J20", "L20", "L21", "M20", "M21", "N20", "N21"],
     },
     Geom: {
       fallbackCells: ["C8", "C10", "M152", "K15", "L155", "L38"],
