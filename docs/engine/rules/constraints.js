@@ -16,12 +16,12 @@ const PAYLOAD_INT_TOL = 0.01;
 const BETA_FALLBACK = null;
 
 const CONSTRAINT_SPECS = [
-  { label: "MaxMach", row: 3, altMin: 35000, machMin: 2.0, machObj: 2.2, abEq: 100, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 23 },
-  { label: "Supercruise", row: 4, altMin: 35000, machMin: 1.5, machObj: 1.8, abEq: 0, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 24 },
-  { label: "Combat Turn 1", row: 6, machEq: 1.2, altEq: 30000, nMin: 3.0, nObj: 4.0, abEq: 100, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 26 },
-  { label: "Combat Turn 2", row: 7, machEq: 0.9, altEq: 10000, nMin: 4.0, nObj: 4.5, abEq: 100, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 27 },
-  { label: "Ps1", row: 8, machEq: 1.15, altEq: 30000, nEq: 1, abEq: 100, psMin: 400, psObj: 500, cdxEq: 0, betaDefault: true, curveRow: 28 },
-  { label: "Ps2", row: 9, machEq: 0.9, altEq: 10000, nEq: 1, abEq: 0, psMin: 400, psObj: 500, cdxEq: 0, betaDefault: true, curveRow: 29 },
+  { label: "MaxMach", curveLabel: "MaxMach", row: 3, altMin: 35000, machMin: 2.0, machObj: 2.2, abEq: 100, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 23 },
+  { label: "CruiseMach", curveLabel: "Supercruise", row: 4, altMin: 35000, machMin: 1.5, machObj: 1.8, abEq: 0, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 24 },
+  { label: "Cmbt Turn1", curveLabel: "CombatTurn1", row: 6, machEq: 1.2, altEq: 30000, nMin: 3.0, nObj: 4.0, abEq: 100, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 26 },
+  { label: "Cmbt Turn2", curveLabel: "CombatTurn2", row: 7, machEq: 0.9, altEq: 10000, nMin: 4.0, nObj: 4.5, abEq: 100, psEq: 0, cdxEq: 0, betaDefault: true, curveRow: 27 },
+  { label: "Ps1", curveLabel: "Ps1", row: 8, machEq: 1.15, altEq: 30000, nEq: 1, abEq: 100, psMin: 400, psObj: 500, cdxEq: 0, betaDefault: true, curveRow: 28 },
+  { label: "Ps2", curveLabel: "Ps2", row: 9, machEq: 0.9, altEq: 10000, nEq: 1, abEq: 0, psMin: 400, psObj: 500, cdxEq: 0, betaDefault: true, curveRow: 29 },
   {
     label: "Takeoff",
     row: 12,
@@ -218,7 +218,7 @@ export function runConstraintChecks(workbook) {
       }
       const requiredTW = pchip(wsAxis, twCurve, wsDesign);
       if (requiredTW != null && twDesign < requiredTW) {
-        curveFailures.add(spec.label);
+        curveFailures.add(spec.curveLabel ?? spec.label);
         if (spec.label === "Takeoff") {
           curveMessages.push(format(STRINGS.constraint.takeoffCurve, twDesign, requiredTW));
         }

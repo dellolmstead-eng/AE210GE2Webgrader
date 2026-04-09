@@ -304,6 +304,9 @@ export function runAttachmentChecks(workbook) {
 
   // Single deduction for geometry/attachment issues (stealth folded into the same point)
   const delta = disconnected > 0 || failures > 0 || stealthIssues > 0 ? -1 : 0;
+  if (delta < 0 && !feedback.includes(STRINGS.attachment.deduction)) {
+    feedback.push(STRINGS.attachment.deduction);
+  }
 
   return { delta, feedback };
 }

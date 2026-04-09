@@ -24,10 +24,16 @@ export function gradeWorkbook(workbook, rules) {
   if (workbook.sheets?.main) {
     const invalidCells = [];
     workbook.sheets.main.forEach((row, rIdx) => {
+      if (rIdx > 74) {
+        return;
+      }
       if (!row) {
         return;
       }
       row.forEach((value, cIdx) => {
+        if (cIdx > 32) {
+          return;
+        }
         if (typeof value === "string" && /^#(DIV\/0!|VALUE!|REF!|NAME\?|NUM!|NULL!|N\/A)$/i.test(value.trim())) {
           invalidCells.push(cellRef(rIdx, cIdx));
         } else if (typeof value === "number" && !Number.isFinite(value)) {
