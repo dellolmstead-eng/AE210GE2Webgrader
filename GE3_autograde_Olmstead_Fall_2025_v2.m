@@ -334,8 +334,12 @@ if alt(5) < 35000 - missionTolAlt || abs(mach(5) - ConstraintsMach) > missionTol
 end
 
 %%%%%%%%%%%%%%% Leg 6: Combat
-if abs(alt(6) - 30000) > missionTolAlt || mach(6) < 1.2 - missionTolMach || abs(ab(6) - 100) > missionTolAlt || time(6) < 2 - missionTolTime
-    logText = logf(logText, 'Leg 6: Must be ≥30,000 ft, Mach ≥ 1.2, AB = 100, Time ≥ 2 min (found alt=%.1f, mach=%.2f, AB=%.1f, time=%.2f)\n', alt(6), mach(6), ab(6), time(6));
+if alt(6) < 30000 - missionTolAlt || mach(6) < 1.2 - missionTolMach || abs(ab(6) - 100) > missionTolAlt
+    logText = logf(logText, 'Leg 6: Must be ≥30,000 ft, Mach ≥ 1.2, AB = 100 (found alt=%.1f, mach=%.2f, AB=%.1f)\n', alt(6), mach(6), ab(6));
+    MissionInputFailed = MissionInputFailed + 1;
+end
+if Main(39, 28) < 720
+    logText = logf(logText, 'Two full 360 turns are required. Increase total turn angle (cell AB39) to 720 degrees or greater to meet the combat turn requirement\n');
     MissionInputFailed = MissionInputFailed + 1;
 end
 
@@ -1018,8 +1022,8 @@ if cnb <= 0.002
     logText = logf(logText, 'Cnb out of bounds\n');
     stabilityPass = 0;
 end
-if ~(rat >= -1 && rat <= -0.3)
-    logText = logf(logText, 'Cnb/Clb ratio out of bounds\n');
+if ~(rat >= 0.3 && rat <= 1)
+    logText = logf(logText, 'Cnb/Clb ratio magnitude must be between 0.3 and 1.0\n');
     stabilityPass = 0;
 end
 
@@ -1150,7 +1154,7 @@ sheets.Aero   = safeReadMatrix(filename, 'Aero',   {'G3','G4','G10','G11','A15',
 sheets.Miss   = safeReadMatrix(filename, 'Miss',   {'C48','C49'});
 sheets.Main   = safeReadMatrix(filename, 'Main',   {'T3','U3','V3','W3','X3','Y3','T4','U4','V4','W4','X4','Y4','T6','U6',...
     'V6','W6','X6','Y6','T7','U7','V7','W7','X7','Y7','T8','U8','V8','W8',...
-    'X8','Y8','T9','U9','V9','W9','X9','Y9','AB3','AB4','X12','X13','B19','M10',...
+    'X8','Y8','T9','U9','V9','W9','X9','Y9','AB3','AB4','AB39','X12','X13','B19','M10',...
     'O10','P10','Q10','O18','X40','Q23','Q31','N31','B32','C23','H23','C26',...
     'H27','H29','I29','F31','F32','B34','E34','B53','E53','D18','D23','D52','F52','H24','E52'});
 sheets.Consts = safeReadMatrix(filename, 'Consts', {'K22','K23','K24','K26','K27','K28','K29','K32','AO42','AQ41','K33'});

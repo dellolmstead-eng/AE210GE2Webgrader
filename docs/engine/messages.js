@@ -7,7 +7,7 @@ export const STRINGS = {
     "Leg 3: Must be ≥35,000 ft, Mach = 0.9, AB = 0",
     "Leg 4: Must be ≥35,000 ft, Mach = 0.9, AB = 0",
     "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-    "Leg 6: Must be ≥30,000 ft, Mach ≥ 1.2, AB = 100, Time ≥ 2 min",
+    "Leg 6: Must be ≥30,000 ft, Mach ≥ 1.2, AB = 100",
     "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
     "Leg 8: Must be ≥35,000 ft, Mach = 0.9, AB = 0",
     "Leg 9: Must be 10,000 ft, Mach = 0.4, AB = 0, Time = 20 min",
@@ -87,7 +87,7 @@ export const STRINGS = {
     smWarn: "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly",
     clb: "Clb out of bounds",
     cnb: "Cnb out of bounds",
-    ratio: "Cnb/Clb ratio out of bounds",
+    ratio: "Cnb/Clb ratio magnitude must be between 0.3 and 1.0",
     deduction: "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
   },
   fuel: {

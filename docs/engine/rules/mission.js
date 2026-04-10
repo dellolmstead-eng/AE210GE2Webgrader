@@ -29,6 +29,7 @@ export function runMissionChecks(workbook) {
   const afterburner = readRowValues(ROWS.afterburner);
   const distance = readRowValues(ROWS.distance);
   const time = readRowValues(ROWS.time);
+  const combatTurnAngle = asNumber(getCell(main, "AB39"));
 
   const fmt = (value, digits) => (Number.isFinite(value) ? value.toFixed(digits) : "NaN");
 
@@ -71,8 +72,12 @@ export function runMissionChecks(workbook) {
     missionFailed = true;
   }
 
-  if (Math.abs(altitude[5] - 30000) > missionTolAlt || mach[5] < 1.2 - missionTolMach || Math.abs(afterburner[5] - 100) > missionTolAlt || time[5] < 2 - missionTolTime) {
-    feedback.push(`Leg 6: Must be ≥30,000 ft, Mach ≥ 1.2, AB = 100, Time ≥ 2 min (found alt=${fmt(altitude[5], 1)}, mach=${fmt(mach[5], 2)}, AB=${fmt(afterburner[5], 1)}, time=${fmt(time[5], 2)})`);
+  if (altitude[5] < 30000 - missionTolAlt || mach[5] < 1.2 - missionTolMach || Math.abs(afterburner[5] - 100) > missionTolAlt) {
+    feedback.push(`Leg 6: Must be ≥30,000 ft, Mach ≥ 1.2, AB = 100 (found alt=${fmt(altitude[5], 1)}, mach=${fmt(mach[5], 2)}, AB=${fmt(afterburner[5], 1)})`);
+    missionFailed = true;
+  }
+  if (!(combatTurnAngle >= 720)) {
+    feedback.push("Two full 360 turns are required. Increase total turn angle (cell AB39) to 720 degrees or greater to meet the combat turn requirement");
     missionFailed = true;
   }
 
