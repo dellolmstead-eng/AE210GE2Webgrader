@@ -3,7 +3,7 @@ export const RULES = {
   matlabVersion: "GE3_autograde_Olmstead_Fall_2025_v2",
   sheets: {
     Aero: {
-      fallbackCells: ["G3", "G4", "G10", "G11", "A15", "A16"],
+      fallbackCells: ["G3", "G4", "G10", "G11", "A15", "A16", "A19"],
     },
     Miss: {
       fallbackCells: [
@@ -20,7 +20,7 @@ export const RULES = {
         "T8", "U8", "V8", "W8", "X8", "Y8",
         "T9", "U9", "V9", "W9", "X9", "Y9",
         "AB3", "AB4", "X12", "X13", "Y37",
-        "M10", "O10", "P10", "Q10",
+        "B19", "M10", "O10", "P10", "Q10",
         "O18", "X40", "Q23", "Q31", "N31",
         "P13", "Q13",
         "K33", "L33", "M33", "N33", "P33", "R33", "S33", "V33", "W33",

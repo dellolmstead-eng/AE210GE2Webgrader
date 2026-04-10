@@ -14,6 +14,7 @@ export const STRINGS = {
   ],
   missionSummary: "There is an error with your inputs to the OCA Mission that must be corrected.",
   aeroMismatch: "-%d point Mismatch in Aero A15, G3, and G10",
+  aeroCoeffRange: "Aero A15 inferred coefficient %s is outside the allowed range of %s to %s",
   thrustLeg: "-1 Point Not enough thrust: Tavailable <= D for %d mission segment(s)",
   takeoffRoll: "-1 Point Too long for takeoff roll",
   constraintSummary: "-1 Point One or more constraints mentioned above are incorrect",

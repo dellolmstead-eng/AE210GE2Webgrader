@@ -241,9 +241,25 @@ logText = logf(logText, '%s\n', [name, ext]);
 % (likely didn't get coded) then deduct 1 point per error, maximum of 2 points.
 
 flag = 0;
+aeroCoeffMin = 0.100;
+aeroCoeffMax = 0.105;
+aeroCoeffTol = 0.001;
 if isequal(Aero(3,7), Aero(4,7)), flag = flag + 1; end % Check cells G3 and G4 to make sure they no longer match indicating a live cell G3
 if isequal(Aero(10,7), Aero(11,7)), flag = flag + 1; end
 if isequal(Aero(15,1), Aero(16,1)), flag = flag + 1; end
+
+if all(isfinite([Aero(15,1), Aero(19,1), Main(19,2)])) && Aero(19,1) > 0 && Main(19,2) > 0
+    k = 57.3 / (pi() * Aero(19,1) * Main(19,2));
+    denom = 1 - k * Aero(15,1);
+    if isfinite(denom) && denom > 0
+        inferredCoeff = Aero(15,1) / denom;
+        if inferredCoeff < aeroCoeffMin - aeroCoeffTol || inferredCoeff > aeroCoeffMax + aeroCoeffTol
+            flag = flag + 1;
+            logText = logf(logText, 'Aero A15 inferred coefficient %.3f is outside the allowed range of %.3f to %.3f\n', ...
+                inferredCoeff, aeroCoeffMin, aeroCoeffMax);
+        end
+    end
+end
 
 pointdeduction = min(2, flag);  % Deduct 1 point per error, max 2
 if pointdeduction > 0
@@ -1130,11 +1146,11 @@ function sheets = loadAllJet11Sheets(filename)
 %   sheets = loadAllJet11Sheets(filename) returns a struct with fields:
 %   Aero, Miss, Main, Consts, Gear, Geom
 
-sheets.Aero   = safeReadMatrix(filename, 'Aero',   {'G3','G4','G10','G11','A15','A16'});
+sheets.Aero   = safeReadMatrix(filename, 'Aero',   {'G3','G4','G10','G11','A15','A16','A19'});
 sheets.Miss   = safeReadMatrix(filename, 'Miss',   {'C48','C49'});
 sheets.Main   = safeReadMatrix(filename, 'Main',   {'T3','U3','V3','W3','X3','Y3','T4','U4','V4','W4','X4','Y4','T6','U6',...
     'V6','W6','X6','Y6','T7','U7','V7','W7','X7','Y7','T8','U8','V8','W8',...
-    'X8','Y8','T9','U9','V9','W9','X9','Y9','AB3','AB4','X12','X13','M10',...
+    'X8','Y8','T9','U9','V9','W9','X9','Y9','AB3','AB4','X12','X13','B19','M10',...
     'O10','P10','Q10','O18','X40','Q23','Q31','N31','B32','C23','H23','C26',...
     'H27','H29','I29','F31','F32','B34','E34','B53','E53','D18','D23','D52','F52','H24','E52'});
 sheets.Consts = safeReadMatrix(filename, 'Consts', {'K22','K23','K24','K26','K27','K28','K29','K32','AO42','AQ41','K33'});
