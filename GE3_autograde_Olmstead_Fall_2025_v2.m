@@ -114,9 +114,14 @@ if strcmp(mode, 'folder')
             [pt, fb] = gradeCadet(filename);
             points(cadetIdx) = pt;
             feedback{cadetIdx} = fb;
-        catch
+        catch ME
             points(cadetIdx) = NaN;
-            feedback{cadetIdx} = sprintf('Error reading or grading file: %s', files(cadetIdx).name);
+            location = '';
+            if ~isempty(ME.stack)
+                topFrame = ME.stack(1);
+                location = sprintf(' (%s line %d)', topFrame.name, topFrame.line);
+            end
+            feedback{cadetIdx} = sprintf('Error reading or grading file: %s\n%s%s', files(cadetIdx).name, ME.message, location);
         end
     end
 
@@ -916,8 +921,12 @@ strakeLeadingAngle = computeEdgeAngleDeg(Geom, 152, 153);
 strakeTrailingAngle = computeEdgeAngleDeg(Geom, 154, 155);
 vtLeadingAngle = computeEdgeAngleDeg(Geom, 163, 164);
 vtTrailingAngle = computeEdgeAngleDeg(Geom, 165, 166);
+wingDihedral = Main(27, 2);
+pcsTilt = Main(27, 3);
 pcsDihedral = Main(26, 3);
 vtTilt = Main(27, 8);
+CORNER_REFLECTOR_TARGET = 45;
+CORNER_REFLECTOR_TOL = 5;
 wingArea = Main(18, 2);
 pcsArea = Main(18, 3);
 strakeArea = Main(18, 4);
@@ -936,6 +945,19 @@ if pcsActive && wingActive && ~anglesParallel(pcsLeadingAngle, wingLeadingAngle,
     stealthFailures = stealthFailures + 1;
 end
 
+if wingActive && ~isnan(wingDihedral) && abs(wingDihedral - CORNER_REFLECTOR_TARGET) <= CORNER_REFLECTOR_TOL
+    [logText, stealthHeaderShown] = logStealth(logText, stealthHeaderShown, 'Main!B27 wing dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.\n', wingDihedral, CORNER_REFLECTOR_TOL, CORNER_REFLECTOR_TOL);
+    stealthFailures = stealthFailures + 1;
+end
+if pcsActive && ~isnan(pcsTilt) && abs(pcsTilt - CORNER_REFLECTOR_TARGET) <= CORNER_REFLECTOR_TOL
+    [logText, stealthHeaderShown] = logStealth(logText, stealthHeaderShown, 'Main!C27 pitch control surface tilt/dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.\n', pcsTilt, CORNER_REFLECTOR_TOL, CORNER_REFLECTOR_TOL);
+    stealthFailures = stealthFailures + 1;
+end
+if vtActive && ~isnan(vtTilt) && abs(vtTilt - CORNER_REFLECTOR_TARGET) <= CORNER_REFLECTOR_TOL
+    [logText, stealthHeaderShown] = logStealth(logText, stealthHeaderShown, 'Main!H27 vertical tail tilt angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.\n', vtTilt, CORNER_REFLECTOR_TOL, CORNER_REFLECTOR_TOL);
+    stealthFailures = stealthFailures + 1;
+end
+
 wingTipTE = geomPlanformPoint(Geom, 40);
 wingCenterTE = geomPlanformPoint(Geom, 41);
 pcsTipTE = geomPlanformPoint(Geom, 117);
@@ -943,7 +965,7 @@ pcsInnerTE = geomPlanformPoint(Geom, 118);
 vtTipTE = geomPlanformPoint(Geom, 165);
 vtInnerTE = geomPlanformPoint(Geom, 166);
 VT_z = Main(25, 8);
-if ~(wingActive && (anglesParallel(wingTrailingAngle, wingLeadingAngle, STEALTH_TOL) || teNormalHitsCenterline(wingTipTE, wingCenterTE)))
+if ~(wingActive && (anglesParallel(wingTrailingAngle, wingLeadingAngle, STEALTH_TOL) || teNormalHitsCenterline(wingTipTE, wingCenterTE, fuselage_length)))
     if ~stealthHeaderShown
         logText = logf(logText, 'Stealth shaping violations:\n');
         stealthHeaderShown = true;
@@ -1104,8 +1126,8 @@ end
 
 rotationAuthority = Gear(20, 14);
 takeoffSpeed = Gear(21, 14);
-if isnan(rotationAuthority) || isnan(takeoffSpeed) || rotationAuthority >= takeoffSpeed - gearTolSpeed
-    logText = logf(logText, 'Violates takeoff rotation speed: %.1f kts (must be < %.1f kts)\n', rotationAuthority, takeoffSpeed);
+if isnan(rotationAuthority) || isnan(takeoffSpeed) || rotationAuthority >= takeoffSpeed
+    logText = logf(logText, 'Violates takeoff rotation speed: %.2f kts (must be < %.2f kts)\n', rotationAuthority, takeoffSpeed);
     LandingGearGood = 0;
 end
 % Deduct if takeoff speed exceeds 200 kts
@@ -1145,7 +1167,7 @@ sheets.Main   = safeReadMatrix(filename, 'Main',   {'T3','U3','V3','W3','X3','Y3
     'V6','W6','X6','Y6','T7','U7','V7','W7','X7','Y7','T8','U8','V8','W8',...
     'X8','Y8','T9','U9','V9','W9','X9','Y9','AB3','AB4','X12','X13','M10',...
     'O10','P10','Q10','O18','X40','Q23','Q31','N31','B32','C23','H23','C26',...
-    'H27','H29','I29','F31','F32','B34','E34','B53','E53','D18','D23','D52','F52','H24','E52'});
+    'B27','C27','H27','H29','I29','F31','F32','B34','E34','B53','E53','D18','D23','D52','F52','H24','E52'});
 sheets.Consts = safeReadMatrix(filename, 'Consts', {'K22','K23','K24','K26','K27','K28','K29','K32','AO42','AQ41','K33'});
 sheets.Gear   = safeReadMatrix(filename, 'Gear',   {'J20','L20','L21','M20','M21','N20','N21'});
 sheets.Geom   = safeReadMatrix(filename, 'Geom',   {'C8','C10','L38','L40','L41','N44','L115','L116','L117','L118','N121','L152','M152','L153','L154','L155','L163','L164','L165','L166'});
@@ -1234,6 +1256,14 @@ if any(isnan([p1, p2]))
     angle = NaN;
     return;
 end
+dx = abs(p2(1) - p1(1));
+dy = abs(p2(2) - p1(2));
+if dx == 0 && dy == 0
+    angle = 0;
+else
+    angle = atan2d(dy, dx);
+end
+end
 
 function angle = computeWingTrailingPlanformAngleDeg(Geom)
 xA = Geom(40, 12);
@@ -1268,14 +1298,6 @@ else
     angle = atan2d(dx, dy);
 end
 end
-dx = abs(p2(1) - p1(1));
-dy = abs(p2(2) - p1(2));
-if dx == 0 && dy == 0
-    angle = 0;
-else
-    angle = atan2d(dy, dx);
-end
-end
 
 function point = geomPlanformPoint(Geom, row)
 x = Geom(row, 12);
@@ -1289,7 +1311,7 @@ end
 point = [x, y];
 end
 
-function hit = teNormalHitsCenterline(tipPoint, innerPoint)
+function hit = teNormalHitsCenterline(tipPoint, innerPoint, fuselageLength)
 if any(isnan([tipPoint, innerPoint]))
     hit = false;
     return;
@@ -1306,8 +1328,11 @@ for k = 1:2
     if t <= 0
         continue;
     end
-    hit = true;
-    break;
+    x = tipPoint(1) + normal(1) * t;
+    if ~isnan(fuselageLength) && x >= -1e-6 && x <= fuselageLength + 1e-6
+        hit = true;
+        break;
+    end
 end
 end
 
@@ -1349,7 +1374,7 @@ if isnan(angle) || isnan(wingAngle)
     end
     logText = logf(logText, 'Unable to verify stealth shaping due to missing geometry data\n');
     failures = failures + 1;
-elseif ~(anglesParallel(angle, wingAngle, tol) || (withinFuselageHeight && teNormalHitsCenterline(tipPoint, innerPoint)))
+elseif ~(anglesParallel(angle, wingAngle, tol) || (withinFuselageHeight && teNormalHitsCenterline(tipPoint, innerPoint, fuselage_length)))
     if ~headerShown
         logText = logf(logText, 'Stealth shaping violations:\n');
         headerShown = true;

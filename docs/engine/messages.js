@@ -71,6 +71,12 @@ export const STRINGS = {
     engineProtrusionMissing: "Unable to verify engine protrusion due to missing geometry data",
     stealthMissing: "Unable to verify stealth shaping due to missing geometry data",
     pcsSweepMatch: "Pitch control surface leading edge sweep %.1f° must match the wing leading edge sweep %.1f° (+/- %.1f°).",
+    wingCornerReflector:
+      "Main!B27 wing dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
+    pcsCornerReflector:
+      "Main!C27 pitch control surface tilt/dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
+    vtCornerReflector:
+      "Main!H27 vertical tail tilt angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
     pcsSweepParallel:
       "Pitch control surface leading edge sweep %.1f° must be parallel to the wing leading edge %.1f° (+/- %.1f°).",
     pcsTrailParallel:
@@ -105,7 +111,7 @@ export const STRINGS = {
     nose: "Violates main gear 90/10 rule share at J20: %.1f% (must be between 80.0% and 90.5%)",
     tipback: "Violates tipback angle requirement: upper %.2f° must be less than lower %.2f°",
     rollover: "Violates rollover angle requirement: upper %.2f° must be less than lower %.2f°",
-    rotationAuthority: "Violates takeoff rotation speed: %.1f kts (must be < %.1f kts)",
+    rotationAuthority: "Violates takeoff rotation speed: %.2f kts (must be < %.2f kts)",
     rotationData:
       "Unable to verify takeoff rotation capability due to missing gear data (check N20 and N21).",
     takeoffSpeed: "Violates takeoff speed limit: %.1f kts (must be ≤ 200 kts)",

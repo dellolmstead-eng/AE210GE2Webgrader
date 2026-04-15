@@ -3,6 +3,8 @@ import { getCell, getCellByIndex, asNumber } from "../parseUtils.js";
 import { format } from "../format.js";
 
 const DEG_TO_RAD = Math.PI / 180;
+const CORNER_REFLECTOR_TARGET = 45;
+const CORNER_REFLECTOR_TOL = 5;
 
 export function runAttachmentChecks(workbook) {
   const feedback = [];
@@ -231,6 +233,8 @@ export function runAttachmentChecks(workbook) {
   const vtTipTE = geomPlanformPoint(geom, 165);
   const vtInnerTE = geomPlanformPoint(geom, 166);
   const vtTrailing = edgeAngle(geom, 165, 166);
+  const wingDihedral = asNumber(getCell(main, "B27"));
+  const pcsTilt = asNumber(getCell(main, "C27"));
   const pcsDihedral = asNumber(getCell(main, "C26"));
   const vtTilt = asNumber(getCell(main, "H27"));
   const vtZ = asNumber(getCell(main, "H25"));
@@ -242,8 +246,20 @@ export function runAttachmentChecks(workbook) {
   const strakeActive = Number.isFinite(strakeArea2) && strakeArea2 >= 1;
   const vtActive = Number.isFinite(vtArea2) && vtArea2 >= 1;
   const wingActive = (Number.isNaN(wingArea) || wingArea >= 1) && !Number.isNaN(wingLeading);
+  const checkCornerReflector = (angle, isActive, template) => {
+    if (!isActive || Number.isNaN(angle)) {
+      return;
+    }
+    if (Math.abs(angle - CORNER_REFLECTOR_TARGET) <= CORNER_REFLECTOR_TOL) {
+      feedback.push(format(template, angle, CORNER_REFLECTOR_TOL, CORNER_REFLECTOR_TOL));
+      stealthIssues += 1;
+    }
+  };
 
   if (wingActive) {
+    checkCornerReflector(wingDihedral, wingActive, STRINGS.attachment.wingCornerReflector);
+    checkCornerReflector(pcsTilt, pcsActive, STRINGS.attachment.pcsCornerReflector);
+    checkCornerReflector(vtTilt, vtActive, STRINGS.attachment.vtCornerReflector);
     if (!Number.isNaN(pcsLeading) && pcsActive) {
       if (!anglesParallel(pcsLeading, wingLeading, STEALTH_TOL)) {
         feedback.push(format(STRINGS.attachment.pcsSweepMatch, Math.abs(pcsLeading), Math.abs(wingLeading), STEALTH_TOL));
@@ -255,7 +271,7 @@ export function runAttachmentChecks(workbook) {
     }
 
   const wingTrailingAligned = anglesParallel(wingTrailing, wingLeading, STEALTH_TOL);
-  const wingNormalHitsCenterline = teNormalHitsCenterline(wingTipTE, wingCenterTE);
+  const wingNormalHitsCenterline = teNormalHitsCenterline(wingTipTE, wingCenterTE, fuselageLength);
   const isWithinFuselageHeight = (componentZ) =>
     Number.isFinite(componentZ) &&
     Number.isFinite(fuseZCenter) &&
@@ -273,7 +289,7 @@ export function runAttachmentChecks(workbook) {
         stealthIssues += 1;
       }
       const pcsTrailingAligned = !Number.isNaN(pcsTrailing) && anglesParallel(pcsTrailing, wingLeading, STEALTH_TOL);
-      const pcsShielded = isWithinFuselageHeight(pcsZ) && teNormalHitsCenterline(pcsTipTE, pcsInnerTE);
+      const pcsShielded = isWithinFuselageHeight(pcsZ) && teNormalHitsCenterline(pcsTipTE, pcsInnerTE, fuselageLength);
       if (!Number.isNaN(pcsTrailing) && !(pcsTrailingAligned || pcsShielded)) {
         feedback.push(format(STRINGS.attachment.pcsTrailParallel, pcsTrailing, wingLeading, STEALTH_TOL));
         stealthIssues += 1;
@@ -299,7 +315,7 @@ export function runAttachmentChecks(workbook) {
         stealthIssues += 1;
       }
       const vtTrailingAligned = !Number.isNaN(vtTrailing) && anglesParallel(vtTrailing, wingLeading, STEALTH_TOL);
-      const vtShielded = isWithinFuselageHeight(vtZ) && teNormalHitsCenterline(vtTipTE, vtInnerTE);
+      const vtShielded = isWithinFuselageHeight(vtZ) && teNormalHitsCenterline(vtTipTE, vtInnerTE, fuselageLength);
       if (!Number.isNaN(vtTrailing) && !(vtTrailingAligned || vtShielded)) {
         feedback.push(format(STRINGS.attachment.vtTrail, Math.abs(vtTrailing), Math.abs(wingLeading), STEALTH_TOL));
         stealthIssues += 1;
@@ -383,7 +399,7 @@ function geomPlanformPoint(geom, row) {
   return [x, y];
 }
 
-function teNormalHitsCenterline(tipPoint, innerPoint) {
+function teNormalHitsCenterline(tipPoint, innerPoint, fuselageLength) {
   if (!tipPoint.every(Number.isFinite) || !innerPoint.every(Number.isFinite)) {
     return false;
   }
@@ -399,7 +415,10 @@ function teNormalHitsCenterline(tipPoint, innerPoint) {
     }
     const t = -tipPoint[1] / ny;
     if (t > 0) {
-      return true;
+      const x = tipPoint[0] + normal[0] * t;
+      if (Number.isFinite(x) && Number.isFinite(fuselageLength) && x >= -1e-6 && x <= fuselageLength + 1e-6) {
+        return true;
+      }
     }
   }
   return false;

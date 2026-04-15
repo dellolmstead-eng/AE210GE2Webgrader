@@ -36,7 +36,7 @@ export function runLandingGearChecks(workbook) {
 
   const rotationAuthority = asNumber(getCell(gear, "N20")); // rotation achievable
   const takeoffSpeed = asNumber(getCell(gear, "N21")); // takeoff speed
-  if (!Number.isFinite(rotationAuthority) || !Number.isFinite(takeoffSpeed) || !(rotationAuthority < takeoffSpeed - gearTolSpeed)) {
+  if (!Number.isFinite(rotationAuthority) || !Number.isFinite(takeoffSpeed) || !(rotationAuthority < takeoffSpeed)) {
     feedback.push(format(STRINGS.gear.rotationAuthority, rotationAuthority, takeoffSpeed));
     good = false;
   }
