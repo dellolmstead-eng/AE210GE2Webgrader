@@ -108,7 +108,6 @@ export function runAttachmentChecks(workbook) {
   }
 
   if (disconnected > 0) {
-    feedback.push(STRINGS.attachment.deduction);
     failures += 1;
   }
 
@@ -125,10 +124,30 @@ export function runAttachmentChecks(workbook) {
     failures += 1;
   }
 
-  // Engine width clearance and overhangs
   const engineDiameter = asNumber(getCell(main, "H29"));
   const inletX = asNumber(getCell(main, "F31"));
   const compressorX = asNumber(getCell(main, "F32"));
+  const engineLength = asNumber(getCell(main, "I29"));
+
+  // Vertical tail overlap check when mounted off fuselage
+  if (vtMountedOff) {
+    const vtApexX = asNumber(getCell(geom, "L163"));
+    const vtRootTeX = asNumber(getCell(geom, "L166"));
+    const wingTeX = asNumber(getCell(geom, "L41"));
+    if (Number.isFinite(vtApexX) && Number.isFinite(vtRootTeX) && Number.isFinite(wingTeX)) {
+      const chord = vtRootTeX - vtApexX;
+      const overlap = Math.max(0, Math.min(wingTeX, vtRootTeX) - vtApexX);
+      if (!(chord > 0) || overlap < 0.8 * chord) {
+        feedback.push(STRINGS.attachment.vtOverlap);
+        failures += 1;
+      }
+    } else {
+      feedback.push(STRINGS.attachment.vtOverlapMissing);
+      failures += 1;
+    }
+  }
+
+  // Engine width clearance and overhangs
   const engineStart = Number.isFinite(inletX) && Number.isFinite(compressorX) ? inletX + compressorX : Number.NaN;
   const widthSamples = [];
   if (Number.isFinite(engineStart)) {
@@ -147,7 +166,7 @@ export function runAttachmentChecks(workbook) {
     const minWidth = Math.min(...widthSamples);
     const maxWidth = Math.max(...widthSamples);
     const requiredWidth = engineDiameter + 0.5;
-    if (minWidth <= requiredWidth) {
+    if (minWidth < requiredWidth) {
       feedback.push(format(STRINGS.attachment.engineWidth, minWidth, requiredWidth));
       // Advisory only; no point deduction
     }
@@ -178,7 +197,6 @@ export function runAttachmentChecks(workbook) {
     }
   }
 
-  const engineLength = asNumber(getCell(main, "I29"));
   if (
     !Number.isFinite(engineDiameter) ||
     !Number.isFinite(fuselageLength) ||
@@ -196,39 +214,26 @@ export function runAttachmentChecks(workbook) {
     }
   }
 
-  // Vertical tail overlap check when mounted off fuselage
-  if (vtMountedOff) {
-    const vtApexX = asNumber(getCell(geom, "L163"));
-    const vtRootTeX = asNumber(getCell(geom, "L166"));
-    const wingTeX = asNumber(getCell(geom, "L41"));
-    if (Number.isFinite(vtApexX) && Number.isFinite(vtRootTeX) && Number.isFinite(wingTeX)) {
-      const chord = vtRootTeX - vtApexX;
-      const overlap = Math.max(0, Math.min(wingTeX, vtRootTeX) - vtApexX);
-      if (!(chord > 0) || overlap < 0.8 * chord) {
-        feedback.push(STRINGS.attachment.vtOverlap);
-        failures += 1;
-      }
-    } else {
-      feedback.push(STRINGS.attachment.vtOverlapMissing);
-      failures += 1;
-    }
-  }
-
   // Stealth shaping checks (angle alignment)
   const stealthStart = feedback.length;
   const STEALTH_TOL = 5;
   const wingLeading = edgeAngle(geom, 38, 39);
-  const wingTrailing = edgeAngle(geom, 40, 41);
+  const wingTrailing = wingTrailingPlanformAngle(geom);
   const wingTipTE = geomPlanformPoint(geom, 40);
   const wingCenterTE = geomPlanformPoint(geom, 41);
   const pcsLeading = edgeAngle(geom, 115, 116);
-  const pcsTrailing = edgeAngle(geom, 117, 118);
+  const pcsTipTE = geomPlanformPoint(geom, 117);
+  const pcsInnerTE = geomPlanformPoint(geom, 118);
+  const pcsTrailing = pcsTrailingPlanformAngle(geom);
   const strakeLeading = edgeAngle(geom, 152, 153);
   const strakeTrailing = edgeAngle(geom, 154, 155);
   const vtLeading = edgeAngle(geom, 163, 164);
+  const vtTipTE = geomPlanformPoint(geom, 165);
+  const vtInnerTE = geomPlanformPoint(geom, 166);
   const vtTrailing = edgeAngle(geom, 165, 166);
   const pcsDihedral = asNumber(getCell(main, "C26"));
   const vtTilt = asNumber(getCell(main, "H27"));
+  const vtZ = asNumber(getCell(main, "H25"));
   const wingArea = asNumber(getCell(main, "B18"));
   const pcsArea2 = asNumber(getCell(main, "C18"));
   const strakeArea2 = asNumber(getCell(main, "D18"));
@@ -249,11 +254,30 @@ export function runAttachmentChecks(workbook) {
       stealthIssues += 1;
     }
 
-    const wingTrailingAligned = anglesParallel(wingTrailing, wingLeading, STEALTH_TOL);
-    const wingNormalHitsCenterline = teNormalHitsCenterline(wingTipTE, wingCenterTE);
-    if (!Number.isNaN(wingTrailing) && !(wingTrailingAligned || wingNormalHitsCenterline)) {
-      feedback.push(format(STRINGS.attachment.wingTrailing, Math.abs(wingTrailing), STEALTH_TOL));
-      stealthIssues += 1;
+  const wingTrailingAligned = anglesParallel(wingTrailing, wingLeading, STEALTH_TOL);
+  const wingNormalHitsCenterline = teNormalHitsCenterline(wingTipTE, wingCenterTE);
+  const isWithinFuselageHeight = (componentZ) =>
+    Number.isFinite(componentZ) &&
+    Number.isFinite(fuseZCenter) &&
+    Number.isFinite(fuseZHeight) &&
+    componentZ >= fuseZCenter - fuseZHeight / 2 &&
+    componentZ <= fuseZCenter + fuseZHeight / 2;
+  if (!Number.isNaN(wingTrailing) && !(wingTrailingAligned || wingNormalHitsCenterline)) {
+    feedback.push(format(STRINGS.attachment.wingTrailing, Math.abs(wingTrailing), STEALTH_TOL));
+    stealthIssues += 1;
+  }
+
+    if (!Number.isNaN(pcsDihedral) && pcsDihedral > 5 && pcsActive) {
+      if (!Number.isNaN(pcsLeading) && !anglesParallel(pcsLeading, wingLeading, STEALTH_TOL)) {
+        feedback.push(format(STRINGS.attachment.pcsSweepParallel, pcsLeading, wingLeading, STEALTH_TOL));
+        stealthIssues += 1;
+      }
+      const pcsTrailingAligned = !Number.isNaN(pcsTrailing) && anglesParallel(pcsTrailing, wingLeading, STEALTH_TOL);
+      const pcsShielded = isWithinFuselageHeight(pcsZ) && teNormalHitsCenterline(pcsTipTE, pcsInnerTE);
+      if (!Number.isNaN(pcsTrailing) && !(pcsTrailingAligned || pcsShielded)) {
+        feedback.push(format(STRINGS.attachment.pcsTrailParallel, pcsTrailing, wingLeading, STEALTH_TOL));
+        stealthIssues += 1;
+      }
     }
 
     if (!Number.isNaN(strakeLeading) && strakeActive) {
@@ -274,24 +298,15 @@ export function runAttachmentChecks(workbook) {
         feedback.push(format(STRINGS.attachment.vtLead, Math.abs(vtLeading), Math.abs(wingLeading), STEALTH_TOL));
         stealthIssues += 1;
       }
-      if (!Number.isNaN(vtTrailing) && !anglesParallel(vtTrailing, wingLeading, STEALTH_TOL)) {
+      const vtTrailingAligned = !Number.isNaN(vtTrailing) && anglesParallel(vtTrailing, wingLeading, STEALTH_TOL);
+      const vtShielded = isWithinFuselageHeight(vtZ) && teNormalHitsCenterline(vtTipTE, vtInnerTE);
+      if (!Number.isNaN(vtTrailing) && !(vtTrailingAligned || vtShielded)) {
         feedback.push(format(STRINGS.attachment.vtTrail, Math.abs(vtTrailing), Math.abs(wingLeading), STEALTH_TOL));
         stealthIssues += 1;
       }
     } else if (vtActive && Number.isNaN(vtTilt)) {
       feedback.push(STRINGS.attachment.stealthMissing);
       stealthIssues += 1;
-    }
-
-    if (!Number.isNaN(pcsDihedral) && pcsDihedral > 5 && pcsActive) {
-      if (!Number.isNaN(pcsLeading) && !anglesParallel(pcsLeading, wingLeading, STEALTH_TOL)) {
-        feedback.push(format(STRINGS.attachment.pcsSweepParallel, pcsLeading, wingLeading, STEALTH_TOL));
-        stealthIssues += 1;
-      }
-      if (!Number.isNaN(pcsTrailing) && !anglesParallel(pcsTrailing, wingLeading, STEALTH_TOL)) {
-        feedback.push(format(STRINGS.attachment.pcsTrailParallel, pcsTrailing, wingLeading, STEALTH_TOL));
-        stealthIssues += 1;
-      }
     }
   } else if (pcsActive || strakeActive || vtActive) {
     feedback.push(STRINGS.attachment.stealthMissing);
@@ -326,6 +341,36 @@ function edgeAngle(geom, rowStart, rowEnd) {
   }
   const angle = Math.atan2(dy, dx) * (180 / Math.PI);
   return angle;
+}
+
+function wingTrailingPlanformAngle(geom) {
+  const xA = asNumber(getCell(geom, "L40"));
+  const xB = asNumber(getCell(geom, "L41"));
+  const halfSpan = asNumber(getCell(geom, "N44"));
+  if (!Number.isFinite(xA) || !Number.isFinite(xB) || !Number.isFinite(halfSpan)) {
+    return Number.NaN;
+  }
+  const dx = Math.abs(xA - xB);
+  const dy = Math.abs(halfSpan);
+  if (dx === 0 && dy === 0) {
+    return 0;
+  }
+  return Math.atan2(dx, dy) * (180 / Math.PI);
+}
+
+function pcsTrailingPlanformAngle(geom) {
+  const xA = asNumber(getCell(geom, "L117"));
+  const xB = asNumber(getCell(geom, "L118"));
+  const halfSpan = asNumber(getCell(geom, "N121"));
+  if (!Number.isFinite(xA) || !Number.isFinite(xB) || !Number.isFinite(halfSpan)) {
+    return Number.NaN;
+  }
+  const dx = Math.abs(xA - xB);
+  const dy = Math.abs(halfSpan);
+  if (dx === 0 && dy === 0) {
+    return 0;
+  }
+  return Math.atan2(dx, dy) * (180 / Math.PI);
 }
 
 function geomPlanformPoint(geom, row) {
