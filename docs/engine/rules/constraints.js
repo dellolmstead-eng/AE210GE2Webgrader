@@ -56,7 +56,6 @@ export function runConstraintChecks(workbook) {
   const consts = workbook.sheets.consts;
   const curveMessages = [];
   const curveFailures = new Set();
-  const distanceObjectives = [];
 
   // Mission radius
   const radius = asNumber(getCell(main, "Y37"));
@@ -92,8 +91,21 @@ export function runConstraintChecks(workbook) {
     wsAxis.push(getCellByIndex(consts, 22, col));
   }
 
+  // MATLAB logs threshold distance failures before the row-by-row objective lines.
+  for (const spec of CONSTRAINT_SPECS) {
+    if (!spec.distance) continue;
+    const distCell = spec.label === "Takeoff" ? "X12" : spec.label === "Landing" ? "X13" : null;
+    const distValue = distCell ? asNumber(getCell(main, distCell)) : Number.NaN;
+    if (distCell && distValue != null && distValue > spec.distance.threshold + tolDist) {
+      const msg = spec.label === "Takeoff" ? STRINGS.constraint.takeoffHigh : STRINGS.constraint.landingHigh;
+      feedback.push(format(msg, distValue));
+      failCount += 1;
+    }
+  }
+
   // Unified constraint/table/curve checks
   CONSTRAINT_SPECS.forEach((spec) => {
+    const specFeedback = [];
     const row = spec.row;
     const mach = asNumber(getCellByIndex(main, row, COLS.mach));
     const altitude = asNumber(getCellByIndex(main, row, COLS.alt));
@@ -105,62 +117,62 @@ export function runConstraintChecks(workbook) {
 
     if (spec.machEq != null) {
       if (!Number.isFinite(mach) || Math.abs(mach - spec.machEq) > tolMach) {
-        feedback.push(format(STRINGS.constraint.machEq, spec.label, mach ?? NaN, spec.machEq));
+        specFeedback.push(format(STRINGS.constraint.machEq, spec.label, mach ?? NaN, spec.machEq));
         failCount += 1;
       }
     } else if (spec.machMin != null) {
       if (mach != null && mach < spec.machMin - tolMach) {
-        feedback.push(format(STRINGS.constraint.machMin, spec.label, mach, spec.machMin));
+        specFeedback.push(format(STRINGS.constraint.machMin, spec.label, mach, spec.machMin));
         failCount += 1;
       } else if (mach != null && spec.machObj != null && mach >= spec.machObj - tolMach) {
-        feedback.push(format(STRINGS.constraint.machObj, spec.label, spec.machObj, mach));
+        specFeedback.push(format(STRINGS.constraint.machObj, spec.label, spec.machObj, mach));
       }
     }
 
     if (spec.altEq != null) {
       if (altitude != null && Math.abs(altitude - spec.altEq) > tolAlt) {
-        feedback.push(format(STRINGS.constraint.altEq, spec.label, altitude, spec.altEq));
+        specFeedback.push(format(STRINGS.constraint.altEq, spec.label, altitude, spec.altEq));
         failCount += 1;
       }
     } else if (spec.altMin != null) {
       if (altitude != null && altitude < spec.altMin - tolAlt) {
-        feedback.push(format(STRINGS.constraint.altMin, spec.label, altitude, spec.altMin));
+        specFeedback.push(format(STRINGS.constraint.altMin, spec.label, altitude, spec.altMin));
         failCount += 1;
       }
     }
 
     if (spec.nEq != null) {
       if (n != null && Math.abs(n - spec.nEq) > tolN) {
-        feedback.push(format(STRINGS.constraint.nEq, spec.label, n, spec.nEq));
+        specFeedback.push(format(STRINGS.constraint.nEq, spec.label, n, spec.nEq));
         failCount += 1;
       }
     } else if (spec.nMin != null) {
       if (n != null && n < spec.nMin - tolN) {
-        feedback.push(format(STRINGS.constraint.nMin, spec.label, n, spec.nMin));
+        specFeedback.push(format(STRINGS.constraint.nMin, spec.label, n, spec.nMin));
         failCount += 1;
       } else if (n != null && spec.nObj != null && n >= spec.nObj - tolN) {
-        feedback.push(format(STRINGS.constraint.nObj, spec.label, spec.nObj, n));
+        specFeedback.push(format(STRINGS.constraint.nObj, spec.label, spec.nObj, n));
       }
     }
 
     if (spec.abEq != null) {
       if (ab != null && Math.abs(ab - spec.abEq) > tolAb) {
-        feedback.push(format(STRINGS.constraint.abEq, spec.label, ab, spec.abEq));
+        specFeedback.push(format(STRINGS.constraint.abEq, spec.label, ab, spec.abEq));
         failCount += 1;
       }
     }
 
     if (spec.psEq != null) {
       if (ps != null && Math.abs(ps - spec.psEq) > tolPs) {
-        feedback.push(format(STRINGS.constraint.psEq, spec.label, ps, spec.psEq));
+        specFeedback.push(format(STRINGS.constraint.psEq, spec.label, ps, spec.psEq));
         failCount += 1;
       }
     } else if (spec.psMin != null) {
       if (ps != null && ps < spec.psMin - tolPs) {
-        feedback.push(format(STRINGS.constraint.psMin, spec.label, ps, spec.psMin));
+        specFeedback.push(format(STRINGS.constraint.psMin, spec.label, ps, spec.psMin));
         failCount += 1;
       } else if (ps != null && spec.psObj != null && ps >= spec.psObj - tolPs) {
-        feedback.push(format(STRINGS.constraint.psObj, spec.label, spec.psObj, ps));
+        specFeedback.push(format(STRINGS.constraint.psObj, spec.label, spec.psObj, ps));
       }
     }
 
@@ -172,14 +184,14 @@ export function runConstraintChecks(workbook) {
           ? spec.betaEq
           : 1 - fuelAvailable / (2 * fuelCapacity);
       if (!Number.isFinite(targetBeta) || !Number.isFinite(beta) || Math.abs(beta - targetBeta) > tolBeta) {
-        feedback.push(format(STRINGS.constraint.betaEq, spec.label, targetBeta ?? NaN, beta ?? NaN));
+        specFeedback.push(format(STRINGS.constraint.betaEq, spec.label, targetBeta ?? NaN, beta ?? NaN));
         failCount += 1;
       }
     }
 
     if (spec.cdxEq != null) {
       if (cdx == null || Math.abs(cdx - spec.cdxEq) > tolCdx) {
-        feedback.push(format(STRINGS.constraint.cdxEq, spec.label, cdx ?? NaN, spec.cdxEq));
+        specFeedback.push(format(STRINGS.constraint.cdxEq, spec.label, cdx ?? NaN, spec.cdxEq));
         failCount += 1;
       }
     } else if (spec.cdxAllowed) {
@@ -189,28 +201,23 @@ export function runConstraintChecks(workbook) {
         const allowedList = spec.cdxAllowed
           .map((v) => v.toFixed(3).replace(/\.?0+$/, ""))
           .join(", ");
-        feedback.push(format(STRINGS.constraint.cdxAllowed, spec.label, cdx ?? NaN, allowedList));
+        specFeedback.push(format(STRINGS.constraint.cdxAllowed, spec.label, cdx ?? NaN, allowedList));
         failCount += 1;
       }
     }
 
     if (spec.distance) {
       const isTakeoff = spec.label === "Takeoff";
-        const isLanding = spec.label === "Landing";
-        const distCell = isTakeoff ? "X12" : isLanding ? "X13" : null;
-        const distValue = distCell ? asNumber(getCell(main, distCell)) : Number.NaN;
-        if (distCell) {
-          if (distValue != null && distValue > spec.distance.threshold + tolDist) {
-            const msg = isTakeoff ? STRINGS.constraint.takeoffHigh : STRINGS.constraint.landingHigh;
-            feedback.push(format(msg, distValue));
-            failCount += 1;
-          } else if (distValue != null && distValue <= spec.distance.objective + tolDist) {
-            const msg = isTakeoff ? STRINGS.constraint.takeoffObj : STRINGS.constraint.landingObj;
-            distanceObjectives.push({ label: spec.label, text: format(msg, distValue) });
-          }
-        }
+      const isLanding = spec.label === "Landing";
+      const distCell = isTakeoff ? "X12" : isLanding ? "X13" : null;
+      const distValue = distCell ? asNumber(getCell(main, distCell)) : Number.NaN;
+      if (distCell && distValue != null && distValue <= spec.distance.objective + tolDist) {
+        const msg = isTakeoff ? STRINGS.constraint.takeoffObj : STRINGS.constraint.landingObj;
+        specFeedback.push(format(msg, distValue));
+      }
     }
 
+    let thisCurveFailed = false;
     if (spec.curveRow != null && Number.isFinite(wsDesign) && Number.isFinite(twDesign)) {
       const twCurve = [];
       for (let col = 11; col <= 31; col += 1) {
@@ -218,12 +225,24 @@ export function runConstraintChecks(workbook) {
       }
       const requiredTW = pchip(wsAxis, twCurve, wsDesign);
       if (requiredTW != null && twDesign < requiredTW) {
+        thisCurveFailed = true;
         curveFailures.add(spec.curveLabel ?? spec.label);
         if (spec.label === "Takeoff") {
           curveMessages.push(format(STRINGS.constraint.takeoffCurve, twDesign, requiredTW));
         }
       }
     }
+
+    if (spec.distance && thisCurveFailed) {
+      const distanceMsg = spec.label === "Takeoff" ? STRINGS.constraint.takeoffObj : STRINGS.constraint.landingObj;
+      const distCell = spec.label === "Takeoff" ? "X12" : "X13";
+      const distValue = asNumber(getCell(main, distCell));
+      const rendered = format(distanceMsg, distValue ?? NaN);
+      const idx = specFeedback.indexOf(rendered);
+      if (idx >= 0) specFeedback.splice(idx, 1);
+    }
+
+    feedback.push(...specFeedback);
   });
 
   // Landing W/S limit as a curve-style check
@@ -247,13 +266,6 @@ export function runConstraintChecks(workbook) {
     }
     curveMessages.push(message);
   }
-
-  // Distance objectives only if the curve for that label passed
-  distanceObjectives.forEach(({ label, text }) => {
-    if (!curveFailures.has(label)) {
-      feedback.push(text);
-    }
-  });
 
   // Append curve messages
   feedback.push(...curveMessages);

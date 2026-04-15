@@ -20,6 +20,7 @@ export function runMissionChecks(workbook) {
 
   const main = workbook.sheets.main;
   const constraintsMach = asNumber(getCell(main, "U4"));
+  const combatTurnAngle = asNumber(getCell(main, "AB39"));
 
   const readRowValues = (rowIndex) =>
     LEG_COLUMNS.map((col) => asNumber(getCellByIndex(main, rowIndex, col)));
@@ -29,7 +30,6 @@ export function runMissionChecks(workbook) {
   const afterburner = readRowValues(ROWS.afterburner);
   const distance = readRowValues(ROWS.distance);
   const time = readRowValues(ROWS.time);
-  const combatTurnAngle = asNumber(getCell(main, "AB39"));
 
   const fmt = (value, digits) => (Number.isFinite(value) ? value.toFixed(digits) : "NaN");
 
