@@ -9,7 +9,7 @@
 
 %--------------------------------------------------------------------------
 % AE210 GE3 Autograder Script – Fall 2025
-% Version: v3.1
+% Version: v3.2
 %
 % Description:
 % This script automates grading for AE210 preliminary Design Project 

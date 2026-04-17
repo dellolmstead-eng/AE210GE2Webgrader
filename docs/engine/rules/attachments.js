@@ -289,7 +289,7 @@ export function runAttachmentChecks(workbook) {
       }
       const pcsTrailingAligned = !Number.isNaN(pcsTrailing) && anglesParallel(pcsTrailing, wingLeading, STEALTH_TOL);
       const pcsShielded =
-        isSurfaceWithinFuselageHeight(pcsZ, pcsDihedral, pcsTipTE, pcsInnerTE) &&
+        isSurfaceWithinFuselageHeight(pcsZ, pcsDihedral, pcsTipTE, pcsInnerTE, fuseZCenter, fuseZHeight) &&
         teNormalHitsCenterline(pcsTipTE, pcsInnerTE, fuselageLength);
       if (!Number.isNaN(pcsTrailing) && !(pcsTrailingAligned || pcsShielded)) {
         feedback.push(format(STRINGS.attachment.pcsTrailParallel, pcsTrailing, wingLeading, STEALTH_TOL));
@@ -317,7 +317,7 @@ export function runAttachmentChecks(workbook) {
       }
       const vtTrailingAligned = !Number.isNaN(vtTrailing) && anglesParallel(vtTrailing, wingLeading, STEALTH_TOL);
       const vtShielded =
-        isSurfaceWithinFuselageHeight(vtZ, vtTilt, vtTipTE, vtInnerTE) &&
+        isSurfaceWithinFuselageHeight(vtZ, vtTilt, vtTipTE, vtInnerTE, fuseZCenter, fuseZHeight) &&
         teNormalHitsCenterline(vtTipTE, vtInnerTE, fuselageLength);
       if (!Number.isNaN(vtTrailing) && !(vtTrailingAligned || vtShielded)) {
         feedback.push(format(STRINGS.attachment.vtTrail, Math.abs(vtTrailing), Math.abs(wingLeading), STEALTH_TOL));
@@ -420,20 +420,20 @@ function anglesParallel(a, b, tol) {
   return diff <= tol || alt <= tol;
 }
 
-function isSurfaceWithinFuselageHeight(componentZ, dihedralAngle, tipPoint, innerPoint) {
+function isSurfaceWithinFuselageHeight(componentZ, dihedralAngle, tipPoint, innerPoint, fuselageCenterZ, fuselageHeight) {
   if (
     !Number.isFinite(componentZ) ||
     !Number.isFinite(dihedralAngle) ||
     !tipPoint.every(Number.isFinite) ||
     !innerPoint.every(Number.isFinite) ||
-    !Number.isFinite(fuseZCenter) ||
-    !Number.isFinite(fuseZHeight)
+    !Number.isFinite(fuselageCenterZ) ||
+    !Number.isFinite(fuselageHeight)
   ) {
     return false;
   }
   const spanOffset = Math.abs(tipPoint[1] - innerPoint[1]);
   const tipZ = componentZ + spanOffset * Math.tan((dihedralAngle * Math.PI) / 180);
-  const lower = fuseZCenter - fuseZHeight / 2;
-  const upper = fuseZCenter + fuseZHeight / 2;
+  const lower = fuselageCenterZ - fuselageHeight / 2;
+  const upper = fuselageCenterZ + fuselageHeight / 2;
   return componentZ >= lower && componentZ <= upper && tipZ >= lower && tipZ <= upper;
 }
