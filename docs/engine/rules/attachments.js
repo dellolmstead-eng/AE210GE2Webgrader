@@ -173,7 +173,7 @@ export function runAttachmentChecks(workbook) {
       // Advisory only; no point deduction
     }
     if (Number.isFinite(fuselageLength)) {
-      const allowedOverhang = 2.5 * maxWidth;
+      const allowedOverhang = 2 * maxWidth;
       const pcsTipX = Math.max(
         asNumber(getCell(geom, "L117")),
         asNumber(getCell(geom, "L118"))

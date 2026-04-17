@@ -9,7 +9,7 @@
 
 %--------------------------------------------------------------------------
 % AE210 GE3 Autograder Script – Fall 2025
-% Version: v3.2
+% Version: v3.2.1
 %
 % Description:
 % This script automates grading for AE210 preliminary Design Project 
@@ -877,7 +877,7 @@ else
     if minWidth + VALUE_TOL <= requiredWidth
         logText = logf(logText, 'Fuselage minimum width (%.2f ft) must exceed engine diameter + 0.5 ft (%.2f ft).\n', minWidth, requiredWidth);
     end
-    allowedOverhang = 2.5 * maxWidth;
+    allowedOverhang = 2 * maxWidth;
     if ~isnan(fuselage_end)
         pcsTipX = max(Geom(117, 12), Geom(118, 12));
         vtTipX = max(Geom(165, 12), Geom(166, 12));
