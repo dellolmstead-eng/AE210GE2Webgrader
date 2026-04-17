@@ -5,6 +5,7 @@ import { format } from "../format.js";
 const DEG_TO_RAD = Math.PI / 180;
 const CORNER_REFLECTOR_TARGET = 45;
 const CORNER_REFLECTOR_TOL = 5;
+const CORNER_REFLECTOR_EDGE_TOL = 0.1;
 
 export function runAttachmentChecks(workbook) {
   const feedback = [];
@@ -20,69 +21,64 @@ export function runAttachmentChecks(workbook) {
   const pcsX = asNumber(getCell(main, "C23"));
   const pcsRootChord = asNumber(getCell(geom, "C8"));
   let vtMountedOff = false;
-  if (
-    pcsArea != null &&
-    pcsArea >= 1 &&
-    pcsX != null &&
-    pcsRootChord != null &&
-    fuselageLength != null &&
-    pcsX > fuselageLength - 0.25 * pcsRootChord
-  ) {
-    feedback.push(STRINGS.attachment.pcsX);
-    disconnected += 1;
+  if (Number.isFinite(pcsArea) && pcsArea >= 1) {
+    if (!Number.isFinite(fuselageLength) || !Number.isFinite(pcsX) || !Number.isFinite(pcsRootChord)) {
+      feedback.push(STRINGS.attachment.pcsXMissing);
+      failures += 1;
+    } else if (pcsX > fuselageLength - 0.25 * pcsRootChord) {
+      feedback.push(STRINGS.attachment.pcsX);
+      disconnected += 1;
+    }
   }
 
   const vtArea = asNumber(getCell(main, "H18"));
   const vtX = asNumber(getCell(main, "H23"));
   const vtRootChord = asNumber(getCell(geom, "C10"));
-  if (
-    vtArea != null &&
-    vtArea >= 1 &&
-    vtX != null &&
-    vtRootChord != null &&
-    fuselageLength != null &&
-    vtX > fuselageLength - 0.25 * vtRootChord
-  ) {
-    feedback.push(STRINGS.attachment.vtX);
-    disconnected += 1;
+  if (Number.isFinite(vtArea) && vtArea >= 1) {
+    if (!Number.isFinite(fuselageLength) || !Number.isFinite(vtX) || !Number.isFinite(vtRootChord)) {
+      feedback.push(STRINGS.attachment.vtXMissing);
+      failures += 1;
+    } else if (vtX > fuselageLength - 0.25 * vtRootChord) {
+      feedback.push(STRINGS.attachment.vtX);
+      disconnected += 1;
+    }
   }
 
   const pcsZ = asNumber(getCell(main, "C25"));
   const fuseZCenter = asNumber(getCell(main, "D52"));
   const fuseZHeight = asNumber(getCell(main, "F52"));
-  if (
-    pcsArea != null &&
-    pcsArea >= 1 &&
-    pcsZ != null &&
-    fuseZCenter != null &&
-    fuseZHeight != null &&
-    (pcsZ < fuseZCenter - fuseZHeight / 2 || pcsZ > fuseZCenter + fuseZHeight / 2)
-  ) {
-    feedback.push(STRINGS.attachment.pcsZ);
-    disconnected += 1;
+  if (Number.isFinite(pcsArea) && pcsArea >= 1) {
+    if (!Number.isFinite(pcsZ) || !Number.isFinite(fuseZCenter) || !Number.isFinite(fuseZHeight)) {
+      feedback.push(STRINGS.attachment.pcsZMissing);
+      failures += 1;
+    } else if (pcsZ < fuseZCenter - fuseZHeight / 2 || pcsZ > fuseZCenter + fuseZHeight / 2) {
+      feedback.push(STRINGS.attachment.pcsZ);
+      disconnected += 1;
+    }
   }
 
   const vtY = asNumber(getCell(main, "H24"));
   const fuseWidth = asNumber(getCell(main, "E52"));
-  if (vtArea != null && vtArea >= 1 && Number.isFinite(vtY) && Number.isFinite(fuseWidth)) {
-    if (Math.abs(vtY) > fuseWidth / 2) {
+  if (Number.isFinite(vtArea) && vtArea >= 1) {
+    if (!Number.isFinite(vtY) || !Number.isFinite(fuseWidth)) {
+      feedback.push(STRINGS.attachment.vtYMissing);
+      failures += 1;
+    } else if (Math.abs(vtY) > fuseWidth / 2) {
       vtMountedOff = true;
       feedback.push(STRINGS.attachment.vtWing);
     }
   }
 
   const strakeArea = asNumber(getCell(main, "D18"));
-  if (strakeArea != null && strakeArea >= 1) {
+  if (Number.isFinite(strakeArea) && strakeArea >= 1) {
     const sweep = asNumber(getCell(geom, "K15"));
     const y = asNumber(getCell(geom, "M152"));
     const strake = asNumber(getCell(geom, "L155"));
     const apex = asNumber(getCell(geom, "L38"));
-    if (
-      sweep != null &&
-      y != null &&
-      strake != null &&
-      apex != null
-    ) {
+    if (!Number.isFinite(sweep) || !Number.isFinite(y) || !Number.isFinite(strake) || !Number.isFinite(apex)) {
+      feedback.push(STRINGS.attachment.strakeMissing);
+      failures += 1;
+    } else {
       const wing = y / Math.tan((90 - sweep) * DEG_TO_RAD) + apex;
       if (!(wing < strake + 0.5)) {
         feedback.push(STRINGS.attachment.strake);
@@ -91,12 +87,12 @@ export function runAttachmentChecks(workbook) {
     }
   }
 
-  if (fuselageLength != null) {
+  if (Number.isFinite(fuselageLength)) {
     const activeComponentPositions = [];
     for (let col = 2; col <= 8; col += 1) {
       const area = asNumber(getCellByIndex(main, 18, col));
       const position = asNumber(getCellByIndex(main, 23, col));
-      if (area != null && area >= 1 && position != null) {
+      if (Number.isFinite(area) && area >= 1 && Number.isFinite(position)) {
         activeComponentPositions.push(position);
       }
     }
@@ -107,10 +103,14 @@ export function runAttachmentChecks(workbook) {
         failures += 1;
       }
     }
-  }
-
-  if (disconnected > 0) {
-    failures += 1;
+  } else {
+    const hasActiveComponent = Array.from({ length: 7 }, (_, offset) =>
+      asNumber(getCellByIndex(main, 18, offset + 2))
+    ).some((area) => Number.isFinite(area) && area >= 1);
+    if (hasActiveComponent) {
+      feedback.push(STRINGS.attachment.fuselageMissing);
+      failures += 1;
+    }
   }
 
   // Aspect ratio checks
@@ -233,8 +233,7 @@ export function runAttachmentChecks(workbook) {
   const vtTipTE = geomPlanformPoint(geom, 165);
   const vtInnerTE = geomPlanformPoint(geom, 166);
   const vtTrailing = edgeAngle(geom, 165, 166);
-  const wingDihedral = asNumber(getCell(main, "B27"));
-  const pcsTilt = asNumber(getCell(main, "C27"));
+  const wingDihedral = asNumber(getCell(main, "B26"));
   const pcsDihedral = asNumber(getCell(main, "C26"));
   const vtTilt = asNumber(getCell(main, "H27"));
   const vtZ = asNumber(getCell(main, "H25"));
@@ -245,12 +244,12 @@ export function runAttachmentChecks(workbook) {
   const pcsActive = Number.isFinite(pcsArea2) && pcsArea2 >= 1;
   const strakeActive = Number.isFinite(strakeArea2) && strakeArea2 >= 1;
   const vtActive = Number.isFinite(vtArea2) && vtArea2 >= 1;
-  const wingActive = (Number.isNaN(wingArea) || wingArea >= 1) && !Number.isNaN(wingLeading);
+  const wingActive = Number.isFinite(wingArea) && wingArea >= 1;
   const checkCornerReflector = (angle, isActive, template) => {
     if (!isActive || Number.isNaN(angle)) {
       return;
     }
-    if (Math.abs(angle - CORNER_REFLECTOR_TARGET) <= CORNER_REFLECTOR_TOL) {
+    if (Math.abs(angle - CORNER_REFLECTOR_TARGET) < CORNER_REFLECTOR_TOL - CORNER_REFLECTOR_EDGE_TOL) {
       feedback.push(format(template, angle, CORNER_REFLECTOR_TOL, CORNER_REFLECTOR_TOL));
       stealthIssues += 1;
     }
@@ -258,7 +257,7 @@ export function runAttachmentChecks(workbook) {
 
   if (wingActive) {
     checkCornerReflector(wingDihedral, wingActive, STRINGS.attachment.wingCornerReflector);
-    checkCornerReflector(pcsTilt, pcsActive, STRINGS.attachment.pcsCornerReflector);
+    checkCornerReflector(pcsDihedral, pcsActive, STRINGS.attachment.pcsCornerReflector);
     checkCornerReflector(vtTilt, vtActive, STRINGS.attachment.vtCornerReflector);
     if (!Number.isNaN(pcsLeading) && pcsActive) {
       if (!anglesParallel(pcsLeading, wingLeading, STEALTH_TOL)) {
@@ -289,7 +288,9 @@ export function runAttachmentChecks(workbook) {
         stealthIssues += 1;
       }
       const pcsTrailingAligned = !Number.isNaN(pcsTrailing) && anglesParallel(pcsTrailing, wingLeading, STEALTH_TOL);
-      const pcsShielded = isWithinFuselageHeight(pcsZ) && teNormalHitsCenterline(pcsTipTE, pcsInnerTE, fuselageLength);
+      const pcsShielded =
+        isSurfaceWithinFuselageHeight(pcsZ, pcsDihedral, pcsTipTE, pcsInnerTE) &&
+        teNormalHitsCenterline(pcsTipTE, pcsInnerTE, fuselageLength);
       if (!Number.isNaN(pcsTrailing) && !(pcsTrailingAligned || pcsShielded)) {
         feedback.push(format(STRINGS.attachment.pcsTrailParallel, pcsTrailing, wingLeading, STEALTH_TOL));
         stealthIssues += 1;
@@ -315,7 +316,9 @@ export function runAttachmentChecks(workbook) {
         stealthIssues += 1;
       }
       const vtTrailingAligned = !Number.isNaN(vtTrailing) && anglesParallel(vtTrailing, wingLeading, STEALTH_TOL);
-      const vtShielded = isWithinFuselageHeight(vtZ) && teNormalHitsCenterline(vtTipTE, vtInnerTE, fuselageLength);
+      const vtShielded =
+        isSurfaceWithinFuselageHeight(vtZ, vtTilt, vtTipTE, vtInnerTE) &&
+        teNormalHitsCenterline(vtTipTE, vtInnerTE, fuselageLength);
       if (!Number.isNaN(vtTrailing) && !(vtTrailingAligned || vtShielded)) {
         feedback.push(format(STRINGS.attachment.vtTrail, Math.abs(vtTrailing), Math.abs(wingLeading), STEALTH_TOL));
         stealthIssues += 1;
@@ -360,33 +363,11 @@ function edgeAngle(geom, rowStart, rowEnd) {
 }
 
 function wingTrailingPlanformAngle(geom) {
-  const xA = asNumber(getCell(geom, "L40"));
-  const xB = asNumber(getCell(geom, "L41"));
-  const halfSpan = asNumber(getCell(geom, "N44"));
-  if (!Number.isFinite(xA) || !Number.isFinite(xB) || !Number.isFinite(halfSpan)) {
-    return Number.NaN;
-  }
-  const dx = Math.abs(xA - xB);
-  const dy = Math.abs(halfSpan);
-  if (dx === 0 && dy === 0) {
-    return 0;
-  }
-  return Math.atan2(dx, dy) * (180 / Math.PI);
+  return edgeAngle(geom, 40, 41);
 }
 
 function pcsTrailingPlanformAngle(geom) {
-  const xA = asNumber(getCell(geom, "L117"));
-  const xB = asNumber(getCell(geom, "L118"));
-  const halfSpan = asNumber(getCell(geom, "N121"));
-  if (!Number.isFinite(xA) || !Number.isFinite(xB) || !Number.isFinite(halfSpan)) {
-    return Number.NaN;
-  }
-  const dx = Math.abs(xA - xB);
-  const dy = Math.abs(halfSpan);
-  if (dx === 0 && dy === 0) {
-    return 0;
-  }
-  return Math.atan2(dx, dy) * (180 / Math.PI);
+  return edgeAngle(geom, 117, 118);
 }
 
 function geomPlanformPoint(geom, row) {
@@ -437,4 +418,22 @@ function anglesParallel(a, b, tol) {
   const diff = Math.abs(aNorm - bNorm);
   const alt = 180 - diff;
   return diff <= tol || alt <= tol;
+}
+
+function isSurfaceWithinFuselageHeight(componentZ, dihedralAngle, tipPoint, innerPoint) {
+  if (
+    !Number.isFinite(componentZ) ||
+    !Number.isFinite(dihedralAngle) ||
+    !tipPoint.every(Number.isFinite) ||
+    !innerPoint.every(Number.isFinite) ||
+    !Number.isFinite(fuseZCenter) ||
+    !Number.isFinite(fuseZHeight)
+  ) {
+    return false;
+  }
+  const spanOffset = Math.abs(tipPoint[1] - innerPoint[1]);
+  const tipZ = componentZ + spanOffset * Math.tan((dihedralAngle * Math.PI) / 180);
+  const lower = fuseZCenter - fuseZHeight / 2;
+  const upper = fuseZCenter + fuseZHeight / 2;
+  return componentZ >= lower && componentZ <= upper && tipZ >= lower && tipZ <= upper;
 }

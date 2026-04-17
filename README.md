@@ -1,4 +1,4 @@
-# AE210 GE2 Web Grader (v2.0)
+# AE210 GE2 Web Grader (v3.1)
 
 Browser grader for AE210 GE2 Jet11 submissions (iteration 1 and cutout). Aligns with the MATLAB `GE3_autograde_Olmstead_Fall_2025_v2.m` logic.
 

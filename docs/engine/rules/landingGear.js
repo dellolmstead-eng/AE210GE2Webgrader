@@ -12,7 +12,7 @@ export function runLandingGearChecks(workbook) {
   const gearTolSpeed = 0.5;
 
   const noseRule = asNumber(getCell(gear, "J20"));
-  if (Number.isFinite(noseRule) && (noseRule < 80 - gearTolPercent || noseRule > 90.5 + gearTolPercent)) {
+  if (!Number.isFinite(noseRule) || noseRule < 80 - gearTolPercent || noseRule > 90.5 + gearTolPercent) {
     feedback.push(format(STRINGS.gear.nose, noseRule));
     good = false;
   }
@@ -21,7 +21,7 @@ export function runLandingGearChecks(workbook) {
   // On the template, the numeric values live at L20 (upper) and L21 (lower).
   const tipbackUpper = asNumber(getCell(gear, "L20"));
   const tipbackLower = asNumber(getCell(gear, "L21"));
-  if (Number.isFinite(tipbackUpper) && Number.isFinite(tipbackLower) && !(tipbackUpper < tipbackLower - gearTolAngle)) {
+  if (!Number.isFinite(tipbackUpper) || !Number.isFinite(tipbackLower) || !(tipbackUpper < tipbackLower - gearTolAngle)) {
     feedback.push(format(STRINGS.gear.tipback, tipbackUpper, tipbackLower));
     good = false;
   }
@@ -29,7 +29,7 @@ export function runLandingGearChecks(workbook) {
   // Rollover: MATLAB requires Gear(19,13) < Gear(20,13) to avoid rollover. Values sit at M20 and M21.
   const rolloverUpper = asNumber(getCell(gear, "M20"));
   const rolloverLower = asNumber(getCell(gear, "M21"));
-  if (Number.isFinite(rolloverUpper) && Number.isFinite(rolloverLower) && !(rolloverUpper < rolloverLower - gearTolAngle)) {
+  if (!Number.isFinite(rolloverUpper) || !Number.isFinite(rolloverLower) || !(rolloverUpper < rolloverLower - gearTolAngle)) {
     feedback.push(format(STRINGS.gear.rollover, rolloverUpper, rolloverLower));
     good = false;
   }

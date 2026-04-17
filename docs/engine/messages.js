@@ -52,11 +52,17 @@ export const STRINGS = {
   },
   attachment: {
     pcsX: "PCS X-location too far aft. Must overlap at least 25% of root chord.",
+    pcsXMissing: "Unable to verify PCS placement due to missing geometry data",
     vtX: "VT X-location too far aft. Must overlap at least 25% of root chord.",
+    vtXMissing: "Unable to verify vertical tail placement due to missing geometry data",
     pcsZ: "PCS Z-location outside fuselage vertical bounds.",
+    pcsZMissing: "Unable to verify PCS vertical placement due to missing geometry data",
     vtY: "VT Y-location outside fuselage width.",
+    vtYMissing: "Unable to verify vertical tail lateral placement due to missing geometry data",
     strake: "Strake disconnected.",
+    strakeMissing: "Unable to verify strake attachment due to missing geometry data",
     fuselage: "One or more components X-location extend beyond the fuselage end (B32 = %.2f)",
+    fuselageMissing: "Unable to verify component X-location due to missing fuselage length",
     deduction: "-1 Point Geometry/attachment/stealth issues detected; see notes above.",
     vtOverlap:
       "Vertical tail mounted on the wing must overlap at least 80% of its root chord with the wing trailing edge.",
@@ -72,9 +78,9 @@ export const STRINGS = {
     stealthMissing: "Unable to verify stealth shaping due to missing geometry data",
     pcsSweepMatch: "Pitch control surface leading edge sweep %.1f° must match the wing leading edge sweep %.1f° (+/- %.1f°).",
     wingCornerReflector:
-      "Main!B27 wing dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
+      "Main!B26 wing dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
     pcsCornerReflector:
-      "Main!C27 pitch control surface tilt/dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
+      "Main!C26 pitch control surface dihedral angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
     vtCornerReflector:
       "Main!H27 vertical tail tilt angle %.1f° creates a corner reflector because it is within %.1f° of 45°. Increase or decrease at least %.1f° off 45° to avoid significant stealth signature increase.",
     pcsSweepParallel:
@@ -98,6 +104,8 @@ export const STRINGS = {
   },
   fuel: {
     shortage: "-1 Point Insufficient fuel: Available = %.1f lb, Required = %.1f lb",
+    extraNegative: "-1 Point Negative extra fuel in Main!O19: %.1f lb",
+    invalid: "-1 Point Fuel check could not be evaluated because O18 or X40 is not numeric",
     volume: "-1 Point Insufficient volume remaining: %.2f ft^3 additional required",
   },
   cost: {
