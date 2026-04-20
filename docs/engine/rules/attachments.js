@@ -6,6 +6,7 @@ const DEG_TO_RAD = Math.PI / 180;
 const CORNER_REFLECTOR_TARGET = 45;
 const CORNER_REFLECTOR_TOL = 5;
 const CORNER_REFLECTOR_EDGE_TOL = 0.1;
+const EDGE_ALIGN_TOL = 0.2;
 
 export function runAttachmentChecks(workbook) {
   const feedback = [];
@@ -85,6 +86,65 @@ export function runAttachmentChecks(workbook) {
         disconnected += 1;
       }
     }
+  }
+
+  const wingLeadingRoot = geomPlanformPoint(geom, 38);
+  const wingLeadingTip = geomPlanformPoint(geom, 39);
+  const wingTrailingRoot = geomPlanformPoint(geom, 41);
+  const wingTrailingTip = geomPlanformPoint(geom, 40);
+
+  const elevonArea = asNumber(getCell(main, "E18"));
+  if (Number.isFinite(elevonArea) && elevonArea >= 1) {
+    const result = checkWingDevicePlacement(
+      "Elevon",
+      "trailing edge",
+      geomPlanformPoint(geom, 177),
+      geomPlanformPoint(geom, 176),
+      geomPlanformPoint(geom, 174),
+      geomPlanformPoint(geom, 175),
+      wingLeadingRoot,
+      wingLeadingTip,
+      wingTrailingRoot,
+      wingTrailingTip,
+    );
+    feedback.push(...result.messages);
+    failures += result.failed ? 1 : 0;
+  }
+
+  const lefArea = asNumber(getCell(main, "F18"));
+  if (Number.isFinite(lefArea) && lefArea >= 1) {
+    const result = checkWingDevicePlacement(
+      "LE Flap",
+      "leading edge",
+      geomPlanformPoint(geom, 186),
+      geomPlanformPoint(geom, 187),
+      geomPlanformPoint(geom, 189),
+      geomPlanformPoint(geom, 188),
+      wingLeadingRoot,
+      wingLeadingTip,
+      wingTrailingRoot,
+      wingTrailingTip,
+    );
+    feedback.push(...result.messages);
+    failures += result.failed ? 1 : 0;
+  }
+
+  const tefArea = asNumber(getCell(main, "G18"));
+  if (Number.isFinite(tefArea) && tefArea >= 1) {
+    const result = checkWingDevicePlacement(
+      "TE Flap",
+      "trailing edge",
+      geomPlanformPoint(geom, 201),
+      geomPlanformPoint(geom, 200),
+      geomPlanformPoint(geom, 198),
+      geomPlanformPoint(geom, 199),
+      wingLeadingRoot,
+      wingLeadingTip,
+      wingTrailingRoot,
+      wingTrailingTip,
+    );
+    feedback.push(...result.messages);
+    failures += result.failed ? 1 : 0;
   }
 
   if (Number.isFinite(fuselageLength)) {
@@ -378,6 +438,97 @@ function geomPlanformPoint(geom, row) {
   ].filter((value) => Number.isFinite(value));
   const y = yCandidates.length === 0 ? 0 : Math.max(...yCandidates.map((value) => Math.abs(value)));
   return [x, y];
+}
+
+function sortEdgePairsByY(relevantA, relevantB, oppositeA, oppositeB) {
+  if (relevantA[1] <= relevantB[1]) {
+    return {
+      relevantInboard: relevantA,
+      relevantOutboard: relevantB,
+      oppositeInboard: oppositeA,
+      oppositeOutboard: oppositeB,
+    };
+  }
+  return {
+    relevantInboard: relevantB,
+    relevantOutboard: relevantA,
+    oppositeInboard: oppositeB,
+    oppositeOutboard: oppositeA,
+  };
+}
+
+function interpolateEdgeXAtY(pointA, pointB, y) {
+  if (!pointA.every(Number.isFinite) || !pointB.every(Number.isFinite) || !Number.isFinite(y)) {
+    return { x: Number.NaN, inRange: false };
+  }
+  const y1 = pointA[1];
+  const y2 = pointB[1];
+  const lower = Math.min(y1, y2);
+  const upper = Math.max(y1, y2);
+  if (y < lower - 1e-6 || y > upper + 1e-6) {
+    return { x: Number.NaN, inRange: false };
+  }
+  if (Math.abs(y2 - y1) < 1e-9) {
+    return { x: pointA[0], inRange: Math.abs(y - y1) <= 1e-6 };
+  }
+  const t = (y - y1) / (y2 - y1);
+  return { x: pointA[0] + t * (pointB[0] - pointA[0]), inRange: true };
+}
+
+function checkWingDevicePlacement(deviceName, edgeName, relevantA, relevantB, oppositeA, oppositeB, wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip) {
+  const points = [relevantA, relevantB, oppositeA, oppositeB, wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip];
+  if (points.some((point) => !point.every(Number.isFinite))) {
+    return { failed: true, messages: [format(STRINGS.attachment.wingDeviceMissing, deviceName)] };
+  }
+
+  const { relevantInboard, relevantOutboard, oppositeInboard, oppositeOutboard } =
+    sortEdgePairsByY(relevantA, relevantB, oppositeA, oppositeB);
+  const wingSpan = Math.max(wingLeadingRoot[1], wingLeadingTip[1], wingTrailingRoot[1], wingTrailingTip[1]);
+  let spanFail = false;
+  let edgeFail = false;
+  let envelopeFail = false;
+
+  for (const pair of [
+    [relevantInboard, oppositeInboard],
+    [relevantOutboard, oppositeOutboard],
+  ]) {
+    const [relevantPoint, oppositePoint] = pair;
+    const y = relevantPoint[1];
+    if (y < -EDGE_ALIGN_TOL || y > wingSpan + EDGE_ALIGN_TOL) {
+      spanFail = true;
+      continue;
+    }
+
+    const wingLeading = interpolateEdgeXAtY(wingLeadingRoot, wingLeadingTip, y);
+    const wingTrailing = interpolateEdgeXAtY(wingTrailingRoot, wingTrailingTip, y);
+    if (!wingLeading.inRange || !wingTrailing.inRange) {
+      spanFail = true;
+      continue;
+    }
+
+    const targetX = edgeName === "leading edge" ? wingLeading.x : wingTrailing.x;
+    if (Math.abs(relevantPoint[0] - targetX) > EDGE_ALIGN_TOL) {
+      edgeFail = true;
+    }
+
+    const lower = Math.min(wingLeading.x, wingTrailing.x) - EDGE_ALIGN_TOL;
+    const upper = Math.max(wingLeading.x, wingTrailing.x) + EDGE_ALIGN_TOL;
+    if (oppositePoint[0] < lower || oppositePoint[0] > upper) {
+      envelopeFail = true;
+    }
+  }
+
+  const messages = [];
+  if (spanFail) {
+    messages.push(format(STRINGS.attachment.wingDeviceSpan, deviceName));
+  }
+  if (edgeFail) {
+    messages.push(format(STRINGS.attachment.wingDeviceEdge, deviceName, edgeName, edgeName, EDGE_ALIGN_TOL));
+  }
+  if (envelopeFail) {
+    messages.push(format(STRINGS.attachment.wingDeviceEnvelope, deviceName));
+  }
+  return { failed: spanFail || edgeFail || envelopeFail, messages };
 }
 
 function teNormalHitsCenterline(tipPoint, innerPoint, fuselageLength) {

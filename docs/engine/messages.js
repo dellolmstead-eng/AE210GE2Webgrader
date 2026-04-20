@@ -67,6 +67,10 @@ export const STRINGS = {
     vtOverlap:
       "Vertical tail mounted on the wing must overlap at least 80% of its root chord with the wing trailing edge.",
     vtOverlapMissing: "Unable to verify vertical tail overlap with wing due to missing geometry data",
+    wingDeviceMissing: "Unable to verify %s wing placement due to missing geometry data",
+    wingDeviceSpan: "%s extends outside the wing span in top view.",
+    wingDeviceEdge: "%s %s must align with the wing %s within %.2f ft in top view.",
+    wingDeviceEnvelope: "%s must remain within the wing planform envelope in top view.",
     pcsAR: "Pitch control surface aspect ratio (%.2f) must be lower than wing aspect ratio (%.2f).",
     vtAR: "Vertical tail aspect ratio (%.2f) must be lower than wing aspect ratio (%.2f).",
     engineWidth: "Fuselage minimum width (%.2f ft) must exceed engine diameter + 0.5 ft (%.2f ft).",
