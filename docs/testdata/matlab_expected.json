@@ -1,1309 +1,488 @@
 [
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c25braydend.whatcott_attempt_2025-11-12-20-50-55_Whatcott_Brayden_GE3_Jet11.xlsm",
+    "file": "GE 2_ AATF Design 1_c26alexandram.waller_attempt_2026-04-20-11-17-14_Waller Alexandra_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c25braydend.whatcott_attempt_2025-11-12-20-50-55_Whatcott_Brayden_GE3_Jet11.xlsm",
-      "Takeoff distance exceeds threshold (3000 ft): 4000 ft",
-      "Landing constraint violated: W/S = 103.14 exceeds limit of 62.81. Increase the landing length or reduce W/S to move your design left of the landing constraint",
-      "Design did not meet the following constraints: Supercruise, Landing. Consider lowering your standards if above threshold.",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Fuselage minimum width (3.48 ft) must exceed engine diameter + 0.5 ft (4.49 ft).",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 55.5° must be parallel to the wing leading edge 45.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 57.5° must be parallel to the wing leading edge 45.0° (+/- 5.0°).",
-      "-1 Point Insufficient volume remaining: -235.12 ft^3 additional required",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $89.2M",
-      "Takeoff speed high: 272.1 kts (recommend < 200 kts)",
-      "Jet11 Score is 8 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26alexanderr.rohm_attempt_2025-11-12-20-16-06_RohmAlexander_iteration5_Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26alexanderr.rohm_attempt_2025-11-12-20-16-06_RohmAlexander_iteration5_Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 5.0 g",
-      "Design did not meet the following constraints: CombatTurn1, Ps2. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 86.8° must be parallel to the wing leading edge 36.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26emmag.williams_attempt_2025-11-13-09-28-34_Williamstake2-Jet11 1.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26emmag.williams_attempt_2025-11-13-09-28-34_Williamstake2-Jet11 1.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 86.8° must be parallel to the wing leading edge 36.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26florenceanned.arevalo_attempt_2025-11-12-21-44-31_Arevalo Flo_Jet11_12Nov_2128.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26florenceanned.arevalo_attempt_2025-11-12-21-44-31_Arevalo Flo_Jet11_12Nov_2128.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Pitch control surface aspect ratio (2.00) must be lower than wing aspect ratio (1.50).",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26ians.coleman_attempt_2025-11-08-11-21-22_Coleman Ian_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26ians.coleman_attempt_2025-11-08-11-21-22_Coleman Ian_GE3 Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 68.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $89.9M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26issa.kawahara.jp_attempt_2025-11-13-00-54-51_Kawahara Issa_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26issa.kawahara.jp_attempt_2025-11-13-00-54-51_Kawahara Issa_GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Design did not meet the following constraints: CombatTurn1, Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 55.5° must be parallel to the wing leading edge 39.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 80.5° must be parallel to the wing leading edge 39.0° (+/- 5.0°).",
-      "Violates nose gear 90/10 rule: 6.8% (must be between 10% and 20%)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26josephs.lee_attempt_2025-11-06-11-23-16_Lee Joseph _GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26josephs.lee_attempt_2025-11-06-11-23-16_Lee Joseph _GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 48.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Takeoff speed high: 221.2 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c26markr.cheng_attempt_2025-11-12-18-09-47_TangPLAYAROUNDJet11_AE210 Baseline_Fall 2025_v2 - Copy.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c26markr.cheng_attempt_2025-11-12-18-09-47_TangPLAYAROUNDJet11_AE210 Baseline_Fall 2025_v2 - Copy.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 45.0° must be parallel to the wing leading edge 37.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 66.1° must be parallel to the wing leading edge 37.0° (+/- 5.0°).",
-      "Violates nose gear 90/10 rule: 9.0% (must be between 10% and 20%)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c27gabriellah.diedrich_attempt_2025-11-12-17-36-23_11_12_Diedrich Gabi_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c27gabriellah.diedrich_attempt_2025-11-12-17-36-23_11_12_Diedrich Gabi_GE3 Jet11.xlsm",
-      "Vertical tail aspect ratio (3.00) must be lower than wing aspect ratio (2.23).",
-      "Fuselage minimum width (3.50 ft) must exceed engine diameter + 0.5 ft (4.44 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 62.0° must be parallel to the wing leading edge 28.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c27gracee.hoyte_attempt_2025-11-14-00-24-39_Hoyte_Grace_GE3_Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c27gracee.hoyte_attempt_2025-11-14-00-24-39_Hoyte_Grace_GE3_Jet11.xlsm",
-      "Design did not meet the following constraint: Ps1. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Strake trailing edge sweep 51.0° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 33.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "-1 Point Recurring cost exceeds threshold for 187-aircraft case ($115M): $116.6M",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c27kai-weid.lindgren_attempt_2025-11-10-18-12-45_Kai-Wei_Lindgren_Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c27kai-weid.lindgren_attempt_2025-11-10-18-12-45_Kai-Wei_Lindgren_Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Pitch control surface extends 17.39 ft beyond the fuselage end (limit 15.00 ft based on fuselage width).",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c27laurene.ozete_attempt_2025-11-08-13-05-31_Ozete Lauren_Jet11_GE3.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c27laurene.ozete_attempt_2025-11-08-13-05-31_Ozete Lauren_Jet11_GE3.xlsm",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 63.0° must be parallel to the wing leading edge 50.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $99.5M",
-      "Takeoff speed high: 211.1 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c27mariet.stolle_attempt_2025-11-12-08-55-03_Stolle Marie_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c27mariet.stolle_attempt_2025-11-12-08-55-03_Stolle Marie_GE3 Jet11.xlsm",
-      "Vertical tail mounted off the fuselage; ensure structural support at the wing.",
-      "Strake disconnected.",
-      "Vertical tail mounted on the wing must overlap at least 80% of its root chord with the wing trailing edge.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $96.9M",
-      "Violates nose gear 90/10 rule: 8.9% (must be between 10% and 20%)",
-      "Violates takeoff rotation speed: 260.8 kts (must be < 213.2 kts)",
-      "Takeoff speed high: 213.2 kts (recommend < 200 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 8 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28adam.busi_attempt_2025-11-10-12-50-32_Busi Adam_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28adam.busi_attempt_2025-11-10-12-50-32_Busi Adam_GE3 Jet11.xlsm",
-      "Fuselage minimum width (1.00 ft) must exceed engine diameter + 0.5 ft (4.40 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 76.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $93.6M",
-      "Takeoff speed high: 226.9 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28aiden.koops_attempt_2025-11-06-13-11-42_KOOPSAIDEN_GE3Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28aiden.koops_attempt_2025-11-06-13-11-42_KOOPSAIDEN_GE3Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Pitch control surface extends 17.62 ft beyond the fuselage end (limit 14.50 ft based on fuselage width).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $99.8M",
-      "Takeoff speed high: 201.0 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28ajay.venkatesh_attempt_2025-11-13-07-16-47_Venkatesh_Ajay_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28ajay.venkatesh_attempt_2025-11-13-07-16-47_Venkatesh_Ajay_GE3 Jet11.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Mission radius below threshold (375 nm): 350.0 nm",
-      "Fewer than 8 AIM-120s: 6",
-      "Takeoff distance exceeds threshold (3000 ft): 4000 ft",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Pitch control surface aspect ratio (2.10) must be lower than wing aspect ratio (1.85).",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 60.0° must be parallel to the wing leading edge 35.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 70.2° must be parallel to the wing leading edge 35.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $87.9M",
-      "Jet11 Score is 8 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28aldo.hart-mann_attempt_2025-11-12-13-28-30_Hart-Mann, Aldo - GE.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28aldo.hart-mann_attempt_2025-11-12-13-28-30_Hart-Mann, Aldo - GE.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.50 ft).",
-      "Violates takeoff rotation speed: 243.3 kts (must be < 196.4 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28avery.beck_attempt_2025-11-11-13-39-30_Beck Avery_GE3 omg.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28avery.beck_attempt_2025-11-11-13-39-30_Beck Avery_GE3 omg.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Vertical tail aspect ratio (1.50) must be lower than wing aspect ratio (1.50).",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.40 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 60.1° must be parallel to the wing leading edge 35.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $90.0M",
-      "Violates nose gear 90/10 rule: 9.2% (must be between 10% and 20%)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 8 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28bode.albers_attempt_2025-11-12-22-24-59_Jet11_AE210 Baseline_Fall 2025 (1).xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28bode.albers_attempt_2025-11-12-22-24-59_Jet11_AE210 Baseline_Fall 2025 (1).xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
+      "GE 2_ AATF Design 1_c26alexandram.waller_attempt_2026-04-20-11-17-14_Waller Alexandra_GE2.xlsm",
       "-1 Point Not enough thrust: Tavailable <= D for 3 mission segment(s)",
-      "Takeoff distance exceeds threshold (3000 ft): 4000 ft",
-      "Design did not meet the following constraints: Supercruise, Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Strake disconnected.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 7 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28brady.salinas_attempt_2025-11-10-17-51-20_Salinas Brady_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28brady.salinas_attempt_2025-11-10-17-51-20_Salinas Brady_GE3 Jet10.xlsm",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 499 ft/s",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 78.9° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Takeoff speed high: 200.6 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28brayden.hintz_attempt_2025-11-06-22-27-14_Jet11_AE210 Baseline_Fall 2025_v4.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28brayden.hintz_attempt_2025-11-06-22-27-14_Jet11_AE210 Baseline_Fall 2025_v4.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Pitch control surface aspect ratio (2.00) must be lower than wing aspect ratio (1.50).",
-      "Stealth shaping violations:",
-      "Pitch control surface leading edge sweep 60.0° must match the wing leading edge sweep 30.5° (+/- 5.0°).",
-      "Pitch control surface leading edge sweep 60.0° must be parallel to the wing leading edge 30.5° (+/- 5.0°).",
-      "Pitch control surface trailing edge sweep 52.9° must be parallel to the wing leading edge 30.5° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Static Margin out of bounds",
-      "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $99.7M",
-      "Violates nose gear 90/10 rule: -3.4% (must be between 10% and 20%)",
-      "Violates tipback angle requirement: upper 10.08° must be less than lower -12.58°",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 7 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28brody.manser_attempt_2025-11-12-15-30-19_Manser GE3 10.10 Jet11_AE210 Baseline_Fall 2025.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28brody.manser_attempt_2025-11-12-15-30-19_Manser GE3 10.10 Jet11_AE210 Baseline_Fall 2025.xlsm",
-      "Design did not meet the following constraint: Ps2. Consider lowering your standards if above threshold.",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.50 ft).",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 30.0° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 79.1° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28brolenr.ruf_attempt_2025-11-12-16-25-56_Ruf Brolen_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28brolenr.ruf_attempt_2025-11-12-16-25-56_Ruf Brolen_GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Design did not meet the following constraint: Ps1. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 62.3° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $95.1M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28bryce.heitmann_attempt_2025-11-12-13-48-09_HeitmannBryce_GE3 Jet10.xlsm.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28bryce.heitmann_attempt_2025-11-12-13-48-09_HeitmannBryce_GE3 Jet10.xlsm.xlsm",
-      "Fuselage minimum width (4.50 ft) must exceed engine diameter + 0.5 ft (4.99 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 76.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Takeoff speed high: 209.2 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28caleb_john.czwartacki_attempt_2025-11-12-22-14-42_Czwartacki CJ_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28caleb_john.czwartacki_attempt_2025-11-12-22-14-42_Czwartacki CJ_GE3 Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Vertical tail mounted off the fuselage; ensure structural support at the wing.",
-      "Vertical tail aspect ratio (1.40) must be lower than wing aspect ratio (1.50).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 65.8° must be parallel to the wing leading edge 30.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 87.7° must be parallel to the wing leading edge 30.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28chalmers.peters_attempt_2025-11-06-15-36-04_Peters_Chalmers_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28chalmers.peters_attempt_2025-11-06-15-36-04_Peters_Chalmers_GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 59.9° must be parallel to the wing leading edge 50.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $91.0M",
-      "Takeoff speed high: 220.6 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28charles.greene_attempt_2025-11-12-16-54-01_GreeneCharles_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28charles.greene_attempt_2025-11-12-16-54-01_GreeneCharles_GE3 Jet10.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Design did not meet the following constraints: Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 83.5° must be parallel to the wing leading edge 39.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $97.6M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28christopher.nogueira_attempt_2025-11-23-22-04-55_NogueiraChristopher_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28christopher.nogueira_attempt_2025-11-23-22-04-55_NogueiraChristopher_GE3 Jet10.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 85.9° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28cody.kelley_attempt_2025-11-10-10-01-03_KelleyCody_GE3Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28cody.kelley_attempt_2025-11-10-10-01-03_KelleyCody_GE3Jet11.xlsm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Engine nacelles protrude 8.56 ft past the fuselage end (limit 4.55 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 62.8° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28cole.casey_attempt_2025-11-12-21-28-25_Casey Cole_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28cole.casey_attempt_2025-11-12-21-28-25_Casey Cole_GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 76.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $99.8M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28cole.wilson_attempt_2025-11-10-13-24-41_WilsonCole_GE3Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28cole.wilson_attempt_2025-11-10-13-24-41_WilsonCole_GE3Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 52.5° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Violates nose gear 90/10 rule: 9.3% (must be between 10% and 20%)",
-      "Takeoff speed high: 228.9 kts (recommend < 200 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28colin.atkinson_attempt_2025-11-10-15-39-05_Atkinson_Colin_GE3_Jet11_2.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28colin.atkinson_attempt_2025-11-10-15-39-05_Atkinson_Colin_GE3_Jet11_2.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Design did not meet the following constraints: Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.04 ft).",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point 183 is not a valid number of aircraft (must be 187 or 800) for cost estimation",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28diego.romero-rojas_attempt_2025-11-10-15-38-12_Romero-Rojas_Diego_Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28diego.romero-rojas_attempt_2025-11-10-15-38-12_Romero-Rojas_Diego_Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 52.5° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Takeoff speed high: 200.9 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28emelynn.kim_attempt_2025-11-25-20-30-48_Kim_Emelynn_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28emelynn.kim_attempt_2025-11-25-20-30-48_Kim_Emelynn_GE3 Jet10.xlsm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 79.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28gavin.carter_attempt_2025-11-11-15-09-26_Carter Gavin_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28gavin.carter_attempt_2025-11-11-15-09-26_Carter Gavin_GE3 Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Vertical tail aspect ratio (2.50) must be lower than wing aspect ratio (1.70).",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 85.5° must be parallel to the wing leading edge 38.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $92.7M",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28hunter.johnston_attempt_2025-11-12-22-03-18_Johnston Hunter(2)_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28hunter.johnston_attempt_2025-11-12-22-03-18_Johnston Hunter(2)_GE3 Jet10.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
       "Mission radius below threshold (375 nm): 350.0 nm",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Strake disconnected.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Violates nose gear 90/10 rule: 6.8% (must be between 10% and 20%)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 7 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28ian.klein_attempt_2025-11-12-08-02-56_Error Corrected Jet11_AE210 Baseline_Fall 2025 (1).xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28ian.klein_attempt_2025-11-12-08-02-56_Error Corrected Jet11_AE210 Baseline_Fall 2025 (1).xlsm",
-      "Design did not meet the following constraints: Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 76.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Takeoff speed high: 214.9 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28jack.cook_attempt_2025-11-12-23-38-14_Cook Jet11_AE210 Baseline_Fall 2025.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28jack.cook_attempt_2025-11-12-23-38-14_Cook Jet11_AE210 Baseline_Fall 2025.xlsm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "MaxMach: W/WTO expected 0.876 for 100% fuel load; found 0.793. Please update to 100% fuel load weight fraction.",
-      "CruiseMach: W/WTO expected 0.876 for 100% fuel load; found 0.793. Please update to 100% fuel load weight fraction.",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn1: W/WTO expected 0.876 for 100% fuel load; found 0.793. Please update to 100% fuel load weight fraction.",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Cmbt Turn2: W/WTO expected 0.876 for 100% fuel load; found 0.793. Please update to 100% fuel load weight fraction.",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps1: W/WTO expected 0.876 for 100% fuel load; found 0.793. Please update to 100% fuel load weight fraction.",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: W/WTO expected 0.876 for 100% fuel load; found 0.793. Please update to 100% fuel load weight fraction.",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $90.7M",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28jackson.coberley_attempt_2025-11-21-00-04-59_Coberley Jackson_GE3.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28jackson.coberley_attempt_2025-11-21-00-04-59_Coberley Jackson_GE3.xlsm",
       "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
+      "Takeoff constraint violated: T/W = 0.81 is below the required 0.90. Increase allowed takeoff distance (if under threshold) to lower the requirement, or move above the line by raising T/W (more thrust) or moving left with lower wing loading.",
+      "Design did not meet the following constraints: Supercruise, Ps1, Ps2, Takeoff. Consider lowering your standards if above threshold.",
+      "-1 Point One or more constraints mentioned above are incorrect",
       "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 62.9° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28jacob.mizukawa_attempt_2025-11-06-23-02-19_GE3 Jacob Mizukawa.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28jacob.mizukawa_attempt_2025-11-06-23-02-19_GE3 Jacob Mizukawa.xlsm",
-      "-2 point Mismatch in Aero A15, G3, and G10  ",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Strake disconnected.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 800-aircraft case (≤$63M): $55.5M",
-      "Violates nose gear 90/10 rule: 8.9% (must be between 10% and 20%)",
-      "Takeoff speed high: 220.2 kts (recommend < 200 kts)",
+      "Wing trailing edge 76.6\u00b0 is not parallel to the leading edge and its normal does not reach the fuselage centerline (+/- 5.0\u00b0).",
+      "Pitch control surface trailing edge sweep 76.6\u00b0 must be parallel to the wing leading edge 42.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Static Margin out of bounds",
+      "Cnb out of bounds",
+      "Cnb/Clb ratio magnitude must be between 0.3 and 1.0",
+      "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
+      "Violates main gear 90/10 rule share at J20: 97.5% (must be between 80.0% and 90.5%)",
+      "Violates tipback angle requirement: upper 16.73\u00b0 must be less than lower 4.32\u00b0",
+      "Violates takeoff speed limit: 235.5 kts (must be \u2264 200 kts)",
       "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
       "Jet11 Score is 6 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28jacques.sevrain_attempt_2025-11-12-22-15-59_threshold.xlsm",
+    "file": "GE 2_ AATF Design 1_c26cianp.reading_attempt_2026-04-20-21-39-39_Reading Cian_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28jacques.sevrain_attempt_2025-11-12-22-15-59_threshold.xlsm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 61.6° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $97.6M",
-      "Takeoff speed high: 234.3 kts (recommend < 200 kts)",
+      "GE 2_ AATF Design 1_c26cianp.reading_attempt_2026-04-20-21-39-39_Reading Cian_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 7.4 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
       "Jet11 Score is 10 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28jaylen.jackson_attempt_2025-11-12-18-08-16_Jackson_Jaylen_GE3Jet11_.xlsm",
+    "file": "GE 2_ AATF Design 1_c26emmav.sanchez_attempt_2026-04-15-14-57-48_Sanchez Emma_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28jaylen.jackson_attempt_2025-11-12-18-08-16_Jackson_Jaylen_GE3Jet11_.xlsm",
-      "-1 point Mismatch in Aero A15, G3, and G10  ",
+      "GE 2_ AATF Design 1_c26emmav.sanchez_attempt_2026-04-15-14-57-48_Sanchez Emma_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c26tylerj.suess_attempt_2026-04-20-22-13-22_SuessTyler_GE2.xlsx.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c26tylerj.suess_attempt_2026-04-20-22-13-22_SuessTyler_GE2.xlsx.xlsm",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c27apoorva.somani_attempt_2026-04-21-14-28-28_SomaniApoorva_GE2_Jet11.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c27apoorva.somani_attempt_2026-04-21-14-28-28_SomaniApoorva_GE2_Jet11.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c27emiliav.dobek_attempt_2026-04-15-14-26-30_Dobek Emilia_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c27emiliav.dobek_attempt_2026-04-15-14-26-30_Dobek Emilia_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Stealth shaping violations:",
+      "Pitch control surface trailing edge sweep 49.3\u00b0 must be parallel to the wing leading edge 41.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c27jamesbenjaminv.burnias_attempt_2026-04-21-20-57-27_Burnias JamesBenjamin_GE2 Jet11.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c27jamesbenjaminv.burnias_attempt_2026-04-21-20-57-27_Burnias JamesBenjamin_GE2 Jet11.xlsm",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29hector.hebmann_attempt_2026-04-15-13-43-35_Hebmann hector_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29hector.hebmann_attempt_2026-04-15-13-43-35_Hebmann hector_GE2.xlsm",
       "Mission radius meets objective (410 nm): 410.0 nm",
       "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Fuselage minimum width (4.40 ft) must exceed engine diameter + 0.5 ft (4.65 ft).",
-      "Stealth shaping violations:",
-      "Strake leading edge sweep 30.0° must be parallel to the wing leading edge 41.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28johanna.blevins_attempt_2025-11-12-12-58-25_BlevinsJohanna_Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28johanna.blevins_attempt_2025-11-12-12-58-25_BlevinsJohanna_Jet11.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $98.5M",
       "Jet11 Score is 10 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28jonathanj.hammond_attempt_2025-11-28-10-09-27_Hammond_Jet11_AE210 GE3_max_constraints.xlsm",
+    "file": "GE 2_ AATF Design 1_c29ian.curran_attempt_2026-04-20-12-37-21_Jet11_AE210 Baseline_Spring 2026 - Current.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28jonathanj.hammond_attempt_2025-11-28-10-09-27_Hammond_Jet11_AE210 GE3_max_constraints.xlsm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.25",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 6.9 g",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $90.5M",
-      "Takeoff speed high: 230.4 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28juneau.kim_attempt_2025-11-11-11-26-16_Jet11_AE210 Baseline_Fall 2025_v2.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28juneau.kim_attempt_2025-11-11-11-26-16_Jet11_AE210 Baseline_Fall 2025_v2.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
+      "GE 2_ AATF Design 1_c29ian.curran_attempt_2026-04-20-12-37-21_Jet11_AE210 Baseline_Spring 2026 - Current.xlsm",
       "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Fuselage minimum width (3.80 ft) must exceed engine diameter + 0.5 ft (4.32 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface leading edge sweep 30.0° must match the wing leading edge sweep 40.0° (+/- 5.0°).",
-      "Pitch control surface leading edge sweep 30.0° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Pitch control surface trailing edge sweep 30.0° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $93.8M",
-      "Takeoff speed high: 210.0 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28kaden.arnold_attempt_2025-11-10-17-02-20_ArnoldKaden_GE3Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28kaden.arnold_attempt_2025-11-10-17-02-20_ArnoldKaden_GE3Jet11.xlsm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 8.0 g",
-      "Takeoff distance meets objective (≤2500 ft): 2300 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 71.8° must be parallel to the wing leading edge 50.0° (+/- 5.0°).",
-      "Vertical tail leading edge sweep 45.0° must be parallel to the wing leading edge 50.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 89.6° must be parallel to the wing leading edge 50.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $98.9M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28kellen.lester_attempt_2025-11-09-22-35-42_Lester Kellen_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28kellen.lester_attempt_2025-11-09-22-35-42_Lester Kellen_GE3 Jet10.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 75.9° must be parallel to the wing leading edge 32.0° (+/- 5.0°).",
-      "Violates nose gear 90/10 rule: 7.8% (must be between 10% and 20%)",
-      "Takeoff speed high: 204.8 kts (recommend < 200 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28lars.poutsma_attempt_2025-11-12-22-55-34_Jet11_AE210 Baseline_Fall 2025(2) this the one.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28lars.poutsma_attempt_2025-11-12-22-55-34_Jet11_AE210 Baseline_Fall 2025(2) this the one.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Pitch control surface extends 20.23 ft beyond the fuselage end (limit 13.75 ft based on fuselage width).",
-      "Engine nacelles protrude 10.26 ft past the fuselage end (limit 4.48 ft).",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28lewis.cota_attempt_2025-11-11-22-42-03_Cota Lewis_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28lewis.cota_attempt_2025-11-11-22-42-03_Cota Lewis_GE3 Jet11.xlsm",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 76.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28lillian.caputo_attempt_2025-11-11-22-49-43_WORKING PLANE_Objective_CapuFF2C0B4CBD9DB810CAC8902DB23272AC.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28lillian.caputo_attempt_2025-11-11-22-49-43_WORKING PLANE_Objective_CapuFF2C0B4CBD9DB810CAC8902DB23272AC.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 72.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Takeoff speed high: 201.3 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28luke.dustin_attempt_2025-11-10-17-19-22_Jet11_AE210 Baseline_Fall 2025_v3.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28luke.dustin_attempt_2025-11-10-17-19-22_Jet11_AE210 Baseline_Fall 2025_v3.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28marcus.roser_attempt_2025-11-12-00-19-53_RoserJet11(3)_AE210 Baseline_Fall 2025_v2.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28marcus.roser_attempt_2025-11-12-00-19-53_RoserJet11(3)_AE210 Baseline_Fall 2025_v2.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Design did not meet the following constraints: CombatTurn1, Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "-1 Point Recurring cost exceeds threshold for 187-aircraft case ($115M): $132.4M",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28marshall.kolb_attempt_2025-11-11-14-50-17_Kolb Marshall_Jet11-redo.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28marshall.kolb_attempt_2025-11-11-14-50-17_Kolb Marshall_Jet11-redo.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Mach = 1.30, expected 0.90",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Design did not meet the following constraint: Ps2. Consider lowering your standards if above threshold.",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 55.5° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 57.5° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Cnb out of bounds",
-      "Cnb/Clb ratio out of bounds",
-      "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
-      "Violates takeoff rotation speed: 183.8 kts (must be < 184.3 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 7 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28mason.lelack_attempt_2025-11-12-23-16-34_Jet11_AE210 Baseline_Fall 2025_v2_LeLack_GE3.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28mason.lelack_attempt_2025-11-12-23-16-34_Jet11_AE210 Baseline_Fall 2025_v2_LeLack_GE3.xlsm",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 51.1° must be parallel to the wing leading edge 43.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28matthew.bruns_attempt_2025-11-11-21-19-53_BrunsMatthew_GE3_Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28matthew.bruns_attempt_2025-11-11-21-19-53_BrunsMatthew_GE3_Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Design did not meet the following constraint: Ps1. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Violates takeoff rotation speed: 258.2 kts (must be < 236.7 kts)",
-      "Takeoff speed high: 236.7 kts (recommend < 200 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28myles.floyd_attempt_2025-11-12-22-49-46_Floyd Myles_GE 3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28myles.floyd_attempt_2025-11-12-22-49-46_Floyd Myles_GE 3 Jet11.xlsm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing constraint violated: W/S = 93.20 exceeds limit of 91.83. Increase the landing length or reduce W/S to move your design left of the landing constraint",
-      "Design did not meet the following constraint: Landing. Consider lowering your standards if above threshold.",
-      "Pitch control surface aspect ratio (3.00) must be lower than wing aspect ratio (2.00).",
-      "Engine nacelles protrude 8.56 ft past the fuselage end (limit 4.55 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface leading edge sweep 31.0° must match the wing leading edge sweep 42.0° (+/- 5.0°).",
-      "Pitch control surface leading edge sweep 31.0° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Static Margin out of bounds",
-      "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
-      "-1 Point Insufficient fuel: Available = 12630.6 lb, Required = 13555.9 lb",
-      "-1 Point Recurring cost exceeds threshold for 187-aircraft case ($115M): $117.3M",
-      "Violates nose gear 90/10 rule: 8.3% (must be between 10% and 20%)",
-      "Takeoff speed high: 203.1 kts (recommend < 200 kts)",
-      "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 5 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28natalyah.felicien_attempt_2025-11-12-15-40-05_FelicienNatalyah_Jet11_AE210 (NEW) (version 1).xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28natalyah.felicien_attempt_2025-11-12-15-40-05_FelicienNatalyah_Jet11_AE210 (NEW) (version 1).xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Design did not meet the following constraint: Ps2. Consider lowering your standards if above threshold.",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
       "Vertical tail mounted off the fuselage; ensure structural support at the wing.",
-      "Vertical tail mounted on the wing must overlap at least 80% of its root chord with the wing trailing edge.",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 800-aircraft case (≤$63M): $54.3M",
-      "Jet11 Score is 9 out of 10",
+      "Jet11 Score is 10 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28nathaniel.delarosa_attempt_2025-11-12-17-56-23_Delarosa Nathaniel_GE3.xlsm",
+    "file": "GE 2_ AATF Design 1_c29isabella.sun_attempt_2026-04-17-19-08-00_Sun Isabella_GE2 Jet11.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28nathaniel.delarosa_attempt_2025-11-12-17-56-23_Delarosa Nathaniel_GE3.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
+      "GE 2_ AATF Design 1_c29isabella.sun_attempt_2026-04-17-19-08-00_Sun Isabella_GE2 Jet11.xlsm",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29jack.hillberg_attempt_2026-04-19-21-12-43_Hillberg Jack_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29jack.hillberg_attempt_2026-04-19-21-12-43_Hillberg Jack_GE2.xlsm",
       "Mission radius meets objective (410 nm): 410.0 nm",
       "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Design did not meet the following constraints: MaxMach, CombatTurn1, Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Vertical tail mounted off the fuselage; ensure structural support at the wing.",
-      "Stealth shaping violations:",
-      "Pitch control surface leading edge sweep 55.0° must match the wing leading edge sweep 42.0° (+/- 5.0°).",
-      "Pitch control surface leading edge sweep 55.0° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Pitch control surface trailing edge sweep 23.4° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Cnb out of bounds",
-      "Cnb/Clb ratio out of bounds",
-      "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
-      "Takeoff speed high: 224.7 kts (recommend < 200 kts)",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28owen.crawley_attempt_2025-11-10-21-06-42_Crawley Owen_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28owen.crawley_attempt_2025-11-10-21-06-42_Crawley Owen_GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 68.3° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 800-aircraft case (≤$63M): $63.0M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28patrick.weaver_attempt_2025-11-16-21-24-18_Jet11_AE210 Baseline_Fall 2025_v2Weaver.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28patrick.weaver_attempt_2025-11-16-21-24-18_Jet11_AE210 Baseline_Fall 2025_v2Weaver.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Design did not meet the following constraints: CombatTurn1, Ps1, Ps2. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Vertical tail leading edge sweep 52.5° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 54.7° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28reis.howell_attempt_2025-11-10-14-51-00_Howell_Reis_Jet11_GE3.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28reis.howell_attempt_2025-11-10-14-51-00_Howell_Reis_Jet11_GE3.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.21",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.2 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 7.9 g",
-      "Takeoff distance meets objective (≤2500 ft): 2135 ft",
-      "Pitch control surface aspect ratio (2.70) must be lower than wing aspect ratio (1.80).",
-      "Stealth shaping violations:",
-      "Pitch control surface leading edge sweep 30.0° must match the wing leading edge sweep 42.0° (+/- 5.0°).",
-      "Pitch control surface leading edge sweep 30.0° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Pitch control surface trailing edge sweep 53.3° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $96.5M",
-      "Jet11 Score is 9 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28rocko.gorowsky_attempt_2025-11-10-09-18-44_Gorowsky_Rocko_GE3_JET11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28rocko.gorowsky_attempt_2025-11-10-09-18-44_Gorowsky_Rocko_GE3_JET11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Fuselage minimum width (4.30 ft) must exceed engine diameter + 0.5 ft (4.36 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 81.0° must be parallel to the wing leading edge 41.0° (+/- 5.0°).",
-      "Strake leading edge sweep 30.0° must be parallel to the wing leading edge 41.0° (+/- 5.0°).",
-      "Strake trailing edge sweep 47.3° must be parallel to the wing leading edge 41.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $94.0M",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28roman.moray_attempt_2025-11-12-19-13-22_Moray Roman_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28roman.moray_attempt_2025-11-12-19-13-22_Moray Roman_GE3 Jet10.xlsm",
-      "Leg 3: Must be ≥35,000 ft, Mach = 0.9, AB = 0",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Mission radius meets objective (410 nm): 420.0 nm",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Ps2: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
       "Design did not meet the following constraint: MaxMach. Consider lowering your standards if above threshold.",
-      "Stealth shaping violations:",
-      "Pitch control surface leading edge sweep 48.0° must match the wing leading edge sweep 42.0° (+/- 5.0°).",
-      "Pitch control surface leading edge sweep 48.0° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Pitch control surface trailing edge sweep 67.9° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
+      "Recurring cost meets objective for 187-aircraft case (\u2264$100M): $71.5M",
       "Jet11 Score is 10 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28ryan.meade_attempt_2025-11-12-14-19-26_MeadeRyan_GE3.xlsm",
+    "file": "GE 2_ AATF Design 1_c29jacob.gabe_attempt_2026-04-15-13-20-58_Gabe Jacob_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28ryan.meade_attempt_2025-11-12-14-19-26_MeadeRyan_GE3.xlsm",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "PCS X-location too far aft. Must overlap at least 25% of root chord.",
-      "PCS Z-location outside fuselage vertical bounds.",
-      "One or more components X-location extend beyond the fuselage end (B32 = 55.00)",
-      "Pitch control surface aspect ratio (1.50) must be lower than wing aspect ratio (1.00).",
-      "Vertical tail aspect ratio (1.20) must be lower than wing aspect ratio (1.00).",
+      "GE 2_ AATF Design 1_c29jacob.gabe_attempt_2026-04-15-13-20-58_Gabe Jacob_GE2.xlsm",
       "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 53.0° must be parallel to the wing leading edge 35.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $90.7M",
+      "Wing trailing edge 88.8\u00b0 is not parallel to the leading edge and its normal does not reach the fuselage centerline (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "-1 Point Recurring cost exceeds threshold for 187-aircraft case ($115M): $125.7M",
       "Jet11 Score is 9 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28ryan.sterne_attempt_2025-11-12-21-02-41_Jet11_AE210 Baseline_Fall 2025 Sterne v1.xlsm",
+    "file": "GE 2_ AATF Design 1_c29jacob.stevens_attempt_2026-04-19-21-35-13_Jet11_THRESHOLD - Jake_Stevens.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28ryan.sterne_attempt_2025-11-12-21-02-41_Jet11_AE210 Baseline_Fall 2025 Sterne v1.xlsm",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.58 ft).",
+      "GE 2_ AATF Design 1_c29jacob.stevens_attempt_2026-04-19-21-35-13_Jet11_THRESHOLD - Jake_Stevens.xlsm",
       "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 64.7° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
+      "Wing trailing edge 81.7\u00b0 is not parallel to the leading edge and its normal does not reach the fuselage centerline (+/- 5.0\u00b0).",
+      "Pitch control surface trailing edge sweep 41.5\u00b0 must be parallel to the wing leading edge 50.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29jacob.volynsky_attempt_2026-04-19-22-45-49_Volynsky Jacob_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29jacob.volynsky_attempt_2026-04-19-22-45-49_Volynsky Jacob_GE2.xlsm",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29misha.check_attempt_2026-04-15-17-44-15_Check Misha_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29misha.check_attempt_2026-04-15-17-44-15_Check Misha_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Stealth shaping violations:",
+      "Pitch control surface trailing edge sweep 70.0\u00b0 must be parallel to the wing leading edge 40.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29nathan.lio_attempt_2026-04-20-08-56-11_Lio_Nathan_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29nathan.lio_attempt_2026-04-20-08-56-11_Lio_Nathan_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
       "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
       "Jet11 Score is 10 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28samuel.lancaster_attempt_2025-11-09-08-06-13_Lancaster_Samuel_GE3_Jet11.xlsm",
+    "file": "GE 2_ AATF Design 1_c29nathaniel.browning_attempt_2026-04-20-01-33-40_Browning Nathaniel_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28samuel.lancaster_attempt_2025-11-09-08-06-13_Lancaster_Samuel_GE3_Jet11.xlsm",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 74.5° must be parallel to the wing leading edge 43.0° (+/- 5.0°).",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28sella.cahill_attempt_2025-11-10-21-49-11_Cahill Sella_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28sella.cahill_attempt_2025-11-10-21-49-11_Cahill Sella_GE3 Jet11.xlsm",
+      "GE 2_ AATF Design 1_c29nathaniel.browning_attempt_2026-04-20-01-33-40_Browning Nathaniel_GE2.xlsm",
       "Mission radius meets objective (410 nm): 410.0 nm",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 68.4° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $84.5M",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
       "Jet11 Score is 10 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28seth.mcdowell_attempt_2025-11-14-12-38-09_McDowell Seth_GE3 Jet11.xlsm",
+    "file": "GE 2_ AATF Design 1_c29nicholas.lindgren_attempt_2026-04-20-20-22-25_Lindgren_Nicholas_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28seth.mcdowell_attempt_2025-11-14-12-38-09_McDowell Seth_GE3 Jet11.xlsm",
+      "GE 2_ AATF Design 1_c29nicholas.lindgren_attempt_2026-04-20-20-22-25_Lindgren_Nicholas_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Ps2: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Design did not meet the following constraints: CombatTurn1, Ps1, Ps2. Consider lowering your standards if above threshold.",
+      "Pitch control surface extends 15.95 ft beyond the fuselage end (limit 15.20 ft based on fuselage width).",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29noah.hall_attempt_2026-04-20-08-29-20_Hall Noah_GE2 Jet11.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29noah.hall_attempt_2026-04-20-08-29-20_Hall Noah_GE2 Jet11.xlsm",
       "Mission radius meets objective (410 nm): 410.0 nm",
       "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Strake disconnected.",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Ps2: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29patrick.bacolo_attempt_2026-04-19-20-49-56_BacoloPatrick_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29patrick.bacolo_attempt_2026-04-19-20-49-56_BacoloPatrick_GE2.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29qadir.lahmidi_attempt_2026-04-15-18-59-14_Lahmidi Qadir GE2 .xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29qadir.lahmidi_attempt_2026-04-15-18-59-14_Lahmidi Qadir GE2 .xlsm",
       "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 83.5° must be parallel to the wing leading edge 39.0° (+/- 5.0°).",
-      "Strake trailing edge sweep 29.1° must be parallel to the wing leading edge 39.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $97.5M",
+      "Wing trailing edge 73.2\u00b0 is not parallel to the leading edge and its normal does not reach the fuselage centerline (+/- 5.0\u00b0).",
+      "Pitch control surface trailing edge sweep 46.7\u00b0 must be parallel to the wing leading edge 41.5\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29ravi.laud_attempt_2026-04-19-22-57-24_Laud Ravi_GE2 Jet11.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29ravi.laud_attempt_2026-04-19-22-57-24_Laud Ravi_GE2 Jet11.xlsm",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Recurring cost meets objective for 187-aircraft case (\u2264$100M): $93.1M",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29richard.rutledge_attempt_2026-04-18-16-08-00_Rutledge Trey_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29richard.rutledge_attempt_2026-04-18-16-08-00_Rutledge Trey_GE2.xlsm",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29robert.clark_attempt_2026-04-15-18-50-17_Clark, Robert GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29robert.clark_attempt_2026-04-15-18-50-17_Clark, Robert GE2.xlsm",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Stealth shaping violations:",
+      "Pitch control surface trailing edge sweep 69.2\u00b0 must be parallel to the wing leading edge 47.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Recurring cost meets objective for 800-aircraft case (\u2264$61M): $58.1M",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29ryan.verkamp_attempt_2026-04-19-20-50-14_Verkamp Ryan_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29ryan.verkamp_attempt_2026-04-19-20-50-14_Verkamp Ryan_GE2.xlsm",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Ps2: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29samuel.harrison_attempt_2026-04-20-12-34-19_Harrison Samuel_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29samuel.harrison_attempt_2026-04-20-12-34-19_Harrison Samuel_GE2.xlsm",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29samuel.young_attempt_2026-04-19-21-59-54_Young Samuel_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29samuel.young_attempt_2026-04-19-21-59-54_Young Samuel_GE2.xlsm",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29sean.burke_attempt_2026-04-20-10-19-28_Burke Sean_GE2 Jet11.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29sean.burke_attempt_2026-04-20-10-19-28_Burke Sean_GE2 Jet11.xlsm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29shobhit.joshi_attempt_2026-04-20-14-38-03_JoshiShobhit_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29shobhit.joshi_attempt_2026-04-20-14-38-03_JoshiShobhit_GE2.xlsm",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29siya.sethi_attempt_2026-04-20-08-50-01_Sethi Siya_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29siya.sethi_attempt_2026-04-20-08-50-01_Sethi Siya_GE2.xlsm",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29sonoma.caldwell_attempt_2026-04-19-23-41-36_Caldwell Sonoma_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29sonoma.caldwell_attempt_2026-04-19-23-41-36_Caldwell Sonoma_GE2.xlsm",
+      "-1 Point Not enough thrust: Tavailable <= D for 1 mission segment(s)",
+      "Mission radius meets objective (410 nm): 410.0 nm",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing distance meets objective (\u22643500 ft): 3500 ft",
+      "Recurring cost meets objective for 187-aircraft case (\u2264$100M): $92.7M",
       "Jet11 Score is 9 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28srikar.potharaju_attempt_2025-11-12-21-03-03_Potharaju Jet11 Aero210 Baseline.xlsm",
+    "file": "GE 2_ AATF Design 1_c29vincent.arnaudo_attempt_2026-04-19-22-48-26_Arnaudo(2) Objective - Jet11_AE210 Baseline_Spring 2026 (1) - Copy.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28srikar.potharaju_attempt_2025-11-12-21-03-03_Potharaju Jet11 Aero210 Baseline.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
+      "GE 2_ AATF Design 1_c29vincent.arnaudo_attempt_2026-04-19-22-48-26_Arnaudo(2) Objective - Jet11_AE210 Baseline_Spring 2026 (1) - Copy.xlsm",
+      "Leg 7: Must be \u226535,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance \u2265 150 nm (found alt=35000.0, mach=1.80, AB=0.0, dist=100.0)",
       "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Mission radius meets objective (410 nm): 410.0 nm",
-      "Takeoff distance exceeds threshold (3000 ft): 4000 ft",
-      "Design did not meet the following constraint: Ps2. Consider lowering your standards if above threshold.",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Landing: W/WTO expected 1.000 for 100% fuel load; found 2.000. Please update to 100% fuel load weight fraction.",
+      "MaxMach: Mach meets objective (\u2265 2.20): 2.20",
+      "CruiseMach: Mach meets objective (\u2265 1.80): 1.80",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Ps1: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Ps2: Ps meets objective (\u2265 500 ft/s): 500 ft/s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Landing constraint violated: W/S = 121.62 exceeds limit of 54.98. Increase the landing length or reduce W/S to move your design left of the landing constraint",
+      "Design did not meet the following constraints: MaxMach, Supercruise, CombatTurn1, CombatTurn2, Ps1, Ps2, Landing, among other issues. Consider seeking EI.",
       "-1 Point One or more constraints mentioned above are incorrect",
-      "Vertical tail mounted off the fuselage; ensure structural support at the wing.",
-      "Vertical tail mounted on the wing must overlap at least 80% of its root chord with the wing trailing edge.",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.65 ft).",
       "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "-1 Point Geometry/attachment issues detected; see notes above.",
-      "Static Margin out of bounds",
-      "-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.",
-      "-1 Point Insufficient volume remaining: -87.64 ft^3 additional required",
-      "Violates nose gear 90/10 rule: 9.4% (must be between 10% and 20%)",
+      "Pitch control surface trailing edge sweep 73.2\u00b0 must be parallel to the wing leading edge 48.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Strake trailing edge sweep 34.6\u00b0 must be parallel to the wing leading edge 48.0\u00b0 (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Jet11 Score is 9 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29william.bradbury_attempt_2026-04-20-12-45-41_Bradbury William GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29william.bradbury_attempt_2026-04-20-12-45-41_Bradbury William GE2.xlsm",
+      "Cmbt Turn1: g-load meets objective (\u2265 4.0 g): 4.0 g",
+      "Cmbt Turn2: g-load meets objective (\u2265 4.5 g): 4.5 g",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Jet11 Score is 10 out of 10",
+      "Cutout is 5 out of 5"
+    ]
+  },
+  {
+    "file": "GE 2_ AATF Design 1_c29xander.clarkson_attempt_2026-04-19-21-02-26_Clarkson_Xander_GE2.xlsm",
+    "logLines": [
+      "GE 2_ AATF Design 1_c29xander.clarkson_attempt_2026-04-19-21-02-26_Clarkson_Xander_GE2.xlsm",
+      "-1 point Mismatch in Aero A15, G3, and G10  ",
+      "Leg 7: Must be \u226535,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance \u2265 150 nm (found alt=40000.0, mach=1.50, AB=0.0, dist=100.0)",
+      "There is an error with your inputs to the OCA Mission that must be corrected. ",
+      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
+      "Takeoff distance meets objective (\u22642500 ft): 2500 ft",
+      "Stealth shaping violations:",
+      "Pitch control surface trailing edge sweep 59.8\u00b0 must be parallel to the wing leading edge 42.0\u00b0 or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- 5.0\u00b0).",
+      "Warning: stealth shaping issues detected; see notes above.",
+      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
+      "Violates takeoff speed limit: 219.4 kts (must be \u2264 200 kts)",
       "-1 point Landing gear geometry outside limits; see notes above and the \"Gear\" tab.",
-      "Jet11 Score is 5 out of 10",
+      "Jet11 Score is 8 out of 10",
       "Cutout is 5 out of 5"
     ]
   },
   {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28thomas.botkin_attempt_2025-11-13-10-01-38_Botkin_Thomas_GE3_Jet11.xlsm",
+    "file": "GE 2_ AATF Design 1_c29zitong.wang_attempt_2026-04-19-19-23-41_WangZitong_GE2.xlsm",
     "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28thomas.botkin_attempt_2025-11-13-10-01-38_Botkin_Thomas_GE3_Jet11.xlsm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "Fuselage minimum width (2.00 ft) must exceed engine diameter + 0.5 ft (4.80 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 81.0° must be parallel to the wing leading edge 40.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Takeoff speed high: 229.3 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28tracey.okoth.ke_attempt_2025-11-11-10-09-28_Okoth_Tracey Aero 210s.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28tracey.okoth.ke_attempt_2025-11-11-10-09-28_Okoth_Tracey Aero 210s.xlsm",
-      "Fuselage minimum width (4.00 ft) must exceed engine diameter + 0.5 ft (4.27 ft).",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 48.0° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Recurring cost meets objective for 187-aircraft case (≤$100M): $93.7M",
-      "Takeoff speed high: 223.2 kts (recommend < 200 kts)",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28vincent.peck_attempt_2025-11-10-09-53-59_Peck_Vincent_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28vincent.peck_attempt_2025-11-10-09-53-59_Peck_Vincent_GE3 Jet11.xlsm",
+      "GE 2_ AATF Design 1_c29zitong.wang_attempt_2026-04-19-19-23-41_WangZitong_GE2.xlsm",
       "Mission radius meets objective (410 nm): 410.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Fuselage minimum width (4.50 ft) must exceed engine diameter + 0.5 ft (4.81 ft).",
+      "Design did not meet the following constraints: Ps1, Ps2. Consider lowering your standards if above threshold.",
       "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28wesley.hine_attempt_2025-11-13-14-21-56_Hine Wesley_GE3 Jet11.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28wesley.hine_attempt_2025-11-13-14-21-56_Hine Wesley_GE3 Jet11.xlsm",
-      "Mission radius meets objective (410 nm): 415.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Ps1: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Ps2: Ps meets objective (≥ 500 ft/s): 500 ft/s",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Stealth shaping violations:",
-      "Pitch control surface trailing edge sweep 72.3° must be parallel to the wing leading edge 41.0° (+/- 5.0°).",
-      "Vertical tail trailing edge sweep 47.2° must be parallel to the wing leading edge 41.0° (+/- 5.0°).",
-      "Warning: Unstable aircraft - Recommend to increase SM above 0 or your glider will not fly ",
-      "Jet11 Score is 10 out of 10",
-      "Cutout is 5 out of 5"
-    ]
-  },
-  {
-    "file": "GE 3_ AATF Design Iteration 1 & Cutout_c28william.lawing_attempt_2025-11-20-20-25-24_Lawing William_GE3 Jet10.xlsm",
-    "logLines": [
-      "GE 3_ AATF Design Iteration 1 & Cutout_c28william.lawing_attempt_2025-11-20-20-25-24_Lawing William_GE3 Jet10.xlsm",
-      "Leg 5: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "Leg 7: Must be ≥35,000 ft, Mach = Contraints block Supercruise Mach (cell U4), AB = 0, Distance ≥ 150 nm",
-      "There is an error with your inputs to the OCA Mission that must be corrected. ",
-      "Mission radius below threshold (375 nm): 350.0 nm",
-      "Payload meets objective: 8 AIM-120s + 2 AIM-9s",
-      "MaxMach: Mach meets objective (≥ 2.20): 2.20",
-      "CruiseMach: Mach meets objective (≥ 1.80): 1.80",
-      "Cmbt Turn1: g-load meets objective (≥ 4.0 g): 4.0 g",
-      "Cmbt Turn2: g-load meets objective (≥ 4.5 g): 4.5 g",
-      "Takeoff distance meets objective (≤2500 ft): 2500 ft",
-      "Landing distance meets objective (≤3500 ft): 3500 ft",
-      "Design did not meet the following constraints: MaxMach, CombatTurn1. Consider lowering your standards if above threshold.",
-      "-1 Point One or more constraints mentioned above are incorrect",
-      "Stealth shaping violations:",
-      "Vertical tail trailing edge sweep 61.6° must be parallel to the wing leading edge 42.0° (+/- 5.0°).",
-      "Jet11 Score is 9 out of 10",
       "Cutout is 5 out of 5"
     ]
   }

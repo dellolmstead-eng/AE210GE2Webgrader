@@ -731,7 +731,6 @@ VALUE_TOL = 1e-3;
 AR_TOL = 0.1;
 VT_WING_FRACTION = 0.8;
 STEALTH_TOL = 5;
-EDGE_ALIGN_TOL = 0.2;
 
 fuselage_length = Main(32, 2); % B32
 fuselage_end = fuselage_length;
@@ -807,41 +806,6 @@ if Main(18, 4) >= 1  % D18 >= 1 indicating area in the strakes
             geometryFailures = geometryFailures + 1;
         end
     end
-end
-
-wingLeadingRoot = geomPlanformPoint(Geom, 38);
-wingLeadingTip = geomPlanformPoint(Geom, 39);
-wingTrailingRoot = geomPlanformPoint(Geom, 41);
-wingTrailingTip = geomPlanformPoint(Geom, 40);
-
-if Main(18, 5) >= 1
-    elevonLEInboard = geomPlanformPoint(Geom, 174);
-    elevonLEOutboard = geomPlanformPoint(Geom, 175);
-    elevonTEOutboard = geomPlanformPoint(Geom, 176);
-    elevonTEInboard = geomPlanformPoint(Geom, 177);
-    [logText, geometryFailures] = checkWingDevicePlacement(logText, geometryFailures, ...
-        'Elevon', 'trailing edge', elevonTEInboard, elevonTEOutboard, elevonLEInboard, elevonLEOutboard, ...
-        wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip, EDGE_ALIGN_TOL);
-end
-
-if Main(18, 6) >= 1
-    lefLEInboard = geomPlanformPoint(Geom, 186);
-    lefLEOutboard = geomPlanformPoint(Geom, 187);
-    lefTEOutboard = geomPlanformPoint(Geom, 188);
-    lefTEInboard = geomPlanformPoint(Geom, 189);
-    [logText, geometryFailures] = checkWingDevicePlacement(logText, geometryFailures, ...
-        'LE Flap', 'leading edge', lefLEInboard, lefLEOutboard, lefTEInboard, lefTEOutboard, ...
-        wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip, EDGE_ALIGN_TOL);
-end
-
-if Main(18, 7) >= 1
-    tefLEInboard = geomPlanformPoint(Geom, 198);
-    tefLEOutboard = geomPlanformPoint(Geom, 199);
-    tefTEOutboard = geomPlanformPoint(Geom, 200);
-    tefTEInboard = geomPlanformPoint(Geom, 201);
-    [logText, geometryFailures] = checkWingDevicePlacement(logText, geometryFailures, ...
-        'TE Flap', 'trailing edge', tefTEInboard, tefTEOutboard, tefLEInboard, tefLEOutboard, ...
-        wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip, EDGE_ALIGN_TOL);
 end
 
 component_positions = Main(23, 2:8);  % B23:H23
@@ -1012,7 +976,7 @@ end
 
 if pcsActive && ~isnan(pcsDihedral) && pcsDihedral > 5
     [logText, stealthFailures, stealthHeaderShown] = requireParallelAngle(logText, stealthFailures, stealthHeaderShown, pcsLeadingAngle, wingLeadingAngle, STEALTH_TOL, 'Pitch control surface leading edge sweep %.1f° must be parallel to the wing leading edge %.1f° (+/- %.1f°).\n');
-    [logText, stealthFailures, stealthHeaderShown] = requireParallelAngleOrCenterlineIfWithinFuselageHeight(logText, stealthFailures, stealthHeaderShown, pcsTrailingAngle, wingLeadingAngle, STEALTH_TOL, 'Pitch control surface trailing edge sweep %.1f° must be parallel to the wing leading edge %.1f° or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- %.1f°).\n', pcsTipTE, pcsInnerTE, isSurfaceWithinFuselageHeight(PCS_z, pcsDihedral, pcsTipTE, pcsInnerTE, fuse_z_center, fuse_z_height));
+    [logText, stealthFailures, stealthHeaderShown] = requireParallelAngleOrCenterlineIfWithinFuselageHeight(logText, stealthFailures, stealthHeaderShown, pcsTrailingAngle, wingLeadingAngle, STEALTH_TOL, 'Pitch control surface trailing edge sweep %.1f° must be parallel to the wing leading edge %.1f° or its normal must reach the fuselage centerline when the surface remains within the fuselage average height (+/- %.1f°).\n', pcsTipTE, pcsInnerTE, isSurfaceWithinFuselageHeight(PCS_z, pcsDihedral, pcsTipTE, pcsInnerTE, fuse_z_center, fuse_z_height), fuselage_length);
 end
 
 if strakeActive
@@ -1031,16 +995,15 @@ elseif isnan(vtTilt)
     stealthFailures = stealthFailures + 1;
 elseif vtTilt < 85
     [logText, stealthFailures, stealthHeaderShown] = requireParallelAngle(logText, stealthFailures, stealthHeaderShown, vtLeadingAngle, wingLeadingAngle, STEALTH_TOL, 'Vertical tail leading edge sweep %.1f° must be parallel to the wing leading edge %.1f° (+/- %.1f°).\n');
-    [logText, stealthFailures, stealthHeaderShown] = requireParallelAngleOrCenterlineIfWithinFuselageHeight(logText, stealthFailures, stealthHeaderShown, vtTrailingAngle, wingLeadingAngle, STEALTH_TOL, 'Vertical tail trailing edge sweep %.1f° must be parallel to the wing leading edge %.1f° or its normal must reach the fuselage centerline when the tail remains within the fuselage average height (+/- %.1f°).\n', vtTipTE, vtInnerTE, isSurfaceWithinFuselageHeight(VT_z, vtTilt, vtTipTE, vtInnerTE, fuse_z_center, fuse_z_height));
+    [logText, stealthFailures, stealthHeaderShown] = requireParallelAngleOrCenterlineIfWithinFuselageHeight(logText, stealthFailures, stealthHeaderShown, vtTrailingAngle, wingLeadingAngle, STEALTH_TOL, 'Vertical tail trailing edge sweep %.1f° must be parallel to the wing leading edge %.1f° or its normal must reach the fuselage centerline when the tail remains within the fuselage average height (+/- %.1f°).\n', vtTipTE, vtInnerTE, isSurfaceWithinFuselageHeight(VT_z, vtTilt, vtTipTE, vtInnerTE, fuse_z_center, fuse_z_height), fuselage_length);
 end
 
-% Fold stealth failures into geometry (max 1 point total)
-if stealthFailures > 0
-    geometryFailures = geometryFailures + 1;
-end
 if geometryFailures > 0
-    logText = logf(logText, '-1 Point Geometry/attachment/stealth issues detected; see notes above.\n');
+    logText = logf(logText, '-1 Point Geometry/attachment issues detected; see notes above.\n');
     pt=pt-1;
+end
+if stealthFailures > 0
+    logText = logf(logText, 'Warning: stealth shaping issues detected; see notes above.\n');
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1329,112 +1292,6 @@ end
 point = [x, y];
 end
 
-function [logText, failures] = checkWingDevicePlacement(logText, failures, deviceName, edgeName, relevantA, relevantB, oppositeA, oppositeB, wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip, tol)
-points = [relevantA, relevantB, oppositeA, oppositeB, wingLeadingRoot, wingLeadingTip, wingTrailingRoot, wingTrailingTip];
-if any(isnan(points))
-    logText = logf(logText, 'Unable to verify %s wing placement due to missing geometry data\n', deviceName);
-    failures = failures + 1;
-    return;
-end
-
-[relevantInboard, relevantOutboard, oppositeInboard, oppositeOutboard] = sortEdgePairsByY(relevantA, relevantB, oppositeA, oppositeB);
-spanFail = false;
-edgeFail = false;
-envelopeFail = false;
-wingSpan = max([wingLeadingRoot(2), wingLeadingTip(2), wingTrailingRoot(2), wingTrailingTip(2)]);
-
-for idx = 1:2
-    if idx == 1
-        relevantPoint = relevantInboard;
-        oppositePoint = oppositeInboard;
-    else
-        relevantPoint = relevantOutboard;
-        oppositePoint = oppositeOutboard;
-    end
-
-    y = relevantPoint(2);
-    if y < -tol || y > wingSpan + tol
-        spanFail = true;
-        continue;
-    end
-
-    [wingLeadingX, leadingInRange] = interpolateEdgeXAtY(wingLeadingRoot, wingLeadingTip, y);
-    [wingTrailingX, trailingInRange] = interpolateEdgeXAtY(wingTrailingRoot, wingTrailingTip, y);
-    if ~leadingInRange || ~trailingInRange
-        spanFail = true;
-        continue;
-    end
-
-    if strcmp(edgeName, 'leading edge')
-        targetX = wingLeadingX;
-    else
-        targetX = wingTrailingX;
-    end
-
-    if abs(relevantPoint(1) - targetX) > tol
-        edgeFail = true;
-    end
-
-    lower = min(wingLeadingX, wingTrailingX) - tol;
-    upper = max(wingLeadingX, wingTrailingX) + tol;
-    if oppositePoint(1) < lower || oppositePoint(1) > upper
-        envelopeFail = true;
-    end
-end
-
-if spanFail
-    logText = logf(logText, '%s extends outside the wing span in top view.\n', deviceName);
-end
-if edgeFail
-    logText = logf(logText, '%s %s must align with the wing %s within %.2f ft in top view.\n', deviceName, edgeName, edgeName, tol);
-end
-if envelopeFail
-    logText = logf(logText, '%s must remain within the wing planform envelope in top view.\n', deviceName);
-end
-if spanFail || edgeFail || envelopeFail
-    failures = failures + 1;
-end
-end
-
-function [relevantInboard, relevantOutboard, oppositeInboard, oppositeOutboard] = sortEdgePairsByY(relevantA, relevantB, oppositeA, oppositeB)
-if relevantA(2) <= relevantB(2)
-    relevantInboard = relevantA;
-    relevantOutboard = relevantB;
-    oppositeInboard = oppositeA;
-    oppositeOutboard = oppositeB;
-else
-    relevantInboard = relevantB;
-    relevantOutboard = relevantA;
-    oppositeInboard = oppositeB;
-    oppositeOutboard = oppositeA;
-end
-end
-
-function [x, inRange] = interpolateEdgeXAtY(pointA, pointB, y)
-if any(isnan([pointA, pointB])) || isnan(y)
-    x = NaN;
-    inRange = false;
-    return;
-end
-y1 = pointA(2);
-y2 = pointB(2);
-lower = min(y1, y2);
-upper = max(y1, y2);
-if y < lower - 1e-6 || y > upper + 1e-6
-    x = NaN;
-    inRange = false;
-    return;
-end
-if abs(y2 - y1) < 1e-9
-    x = pointA(1);
-    inRange = abs(y - y1) <= 1e-6;
-    return;
-end
-t = (y - y1) / (y2 - y1);
-x = pointA(1) + t * (pointB(1) - pointA(1));
-inRange = true;
-end
-
 function hit = teNormalHitsCenterline(tipPoint, innerPoint, fuselageLength)
 if any(isnan([tipPoint, innerPoint]))
     hit = false;
@@ -1490,7 +1347,7 @@ elseif ~anglesParallel(angle, wingAngle, tol)
 end
 end
 
-function [logText, failures, headerShown] = requireParallelAngleOrCenterlineIfWithinFuselageHeight(logText, failures, headerShown, angle, wingAngle, tol, template, tipPoint, innerPoint, withinFuselageHeight)
+function [logText, failures, headerShown] = requireParallelAngleOrCenterlineIfWithinFuselageHeight(logText, failures, headerShown, angle, wingAngle, tol, template, tipPoint, innerPoint, withinFuselageHeight, fuselageLength)
 if isnan(angle) || isnan(wingAngle)
     if ~headerShown
         logText = logf(logText, 'Stealth shaping violations:\n');
@@ -1498,7 +1355,7 @@ if isnan(angle) || isnan(wingAngle)
     end
     logText = logf(logText, 'Unable to verify stealth shaping due to missing geometry data\n');
     failures = failures + 1;
-elseif ~(anglesParallel(angle, wingAngle, tol) || (withinFuselageHeight && teNormalHitsCenterline(tipPoint, innerPoint, fuselage_length)))
+elseif ~(anglesParallel(angle, wingAngle, tol) || (withinFuselageHeight && teNormalHitsCenterline(tipPoint, innerPoint, fuselageLength)))
     if ~headerShown
         logText = logf(logText, 'Stealth shaping violations:\n');
         headerShown = true;
@@ -1596,6 +1453,17 @@ uiwait(d);  % Wait for user to close dialog
     end
 end
 
+function username = extractBlackboardUsername(fname)
+% Blackboard export filenames place the username in the token immediately
+% before "_attempt". Keep this tolerant of dots, dashes, and underscores.
+userTok = regexp(fname, '_([^\s]+?)_attempt(?:_|\.|$)', 'tokens', 'once');
+if ~isempty(userTok)
+    username = userTok{1};
+else
+    username = 'UNKNOWN';
+end
+end
+
 %% Prompt user and generate Blackboard CSV (combined function)
 function promptAndGenerateBlackboardCSV(folderAnalyzed, files, points, feedback, timestamp)
 % Position dialog below cursor
@@ -1633,7 +1501,7 @@ uicontrol('Parent', d, ...
             fid = fopen(csvFilename, 'w');
 
             % Assignment title column (update if needed)
-            assignmentTitle = 'GE 2: AATF Design Iteration 1 & Cutout [Total Pts: 15 Score] |409578';
+            assignmentTitle = 'GE 2: AATF Design Iteration 1 & Cutout [Total Pts: 15 Score] |466277';
 
             % Write header (username only for identification)
             fprintf(fid, '"Username","%s","Grading Notes","Notes Format","Feedback to Learner","Feedback Format"\n', assignmentTitle);
@@ -1641,13 +1509,7 @@ uicontrol('Parent', d, ...
             for i = 1:numel(files)
                 fname = files(i).name;
 
-                % Extract username from filename (captures everything between cohort code and \"_attempt\")
-                tokens = regexp(fname, '_(c\\d{2}[A-Za-z0-9._-]+)_attempt', 'tokens');
-                if ~isempty(tokens)
-                    username = tokens{1}{1};
-                else
-                    username = 'UNKNOWN';
-                end
+                username = extractBlackboardUsername(fname);
                 % Get score and feedback
                 score = points(i) + 5;
                 fbText = feedback{i};
