@@ -1,11 +1,11 @@
-# AE210 GE2 Web Grader (v3.2.1)
+# AE210 Draft Aircraft Web Grader (v3.2.1)
 
-Browser grader for AE210 GE2 Jet11 submissions (iteration 1 and cutout). Aligns with the MATLAB `GE3_autograde_Olmstead_Fall_2025_v2.m` logic.
+Browser grader for AE210 Draft Aircraft Jet11 submissions (iteration 1 and cutout). Aligns with the MATLAB Draft Aircraft autograder logic.
 
 ## Usage
 
 1. Open `docs/index.html` (or serve the `docs/` folder).
-2. Drop a GE2 Jet11 workbook that matches the GE2 template.
+2. Drop a Draft Aircraft Jet11 workbook that matches the Draft Aircraft template.
 3. Review the computed score and any deduction notes; processing stays client-side.
 
 ## Parity testing
@@ -14,4 +14,4 @@ Open `docs/test_runner.html` and compare results to MATLAB logs for the same wor
 
 ## Notes
 
-- GE2 now tracks its workbook templates and README/docs directly in this repo.
+- Draft Aircraft now tracks its workbook templates and README/docs directly in this repo.

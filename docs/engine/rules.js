@@ -1,6 +1,6 @@
 export const RULES = {
   versionLabel: "DraftAircraft Grader 2025 v3.1",
-  matlabVersion: "GE3_autograde_Olmstead_Fall_2025_v2",
+  matlabVersion: "DraftAircraft MATLAB grader",
   sheets: {
     Aero: {
       fallbackCells: ["G3", "G4", "G10", "G11", "A15", "A16"],

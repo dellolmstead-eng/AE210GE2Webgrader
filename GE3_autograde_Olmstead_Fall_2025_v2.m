@@ -1,19 +1,19 @@
 
-% GE3 Autograder: Grades AE210 Jet11 Excel submissions, logs feedback, and optionally exports Blackboard-compatible scores.
+% Draft Aircraft Autograder: Grades AE210 Jet11 Excel submissions, logs feedback, and optionally exports Blackboard-compatible scores.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% IMPORTANT NOTE: BLACKBOARD DOWNLOAD FILE NAMES ARE TOO LONG TO %%%%%
-%%%%%% UNPACK THESE FILES IN ANY USER FOLDER. CREATE A C:/GE3FILES OR %%%%%
+%%%%%% UNPACK THESE FILES IN ANY USER FOLDER. CREATE A C:/DRAFTAIRCRAFT OR %
 %%%%%% SIMILAR FOLDER TO REDUCE THE TOTAL FILE PATH NAME PRIOR TO READING %
 %%%%%% THE FILES WITH THIS TOOL. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %--------------------------------------------------------------------------
-% AE210 GE3 Autograder Script – Fall 2025
+% AE210 Draft Aircraft Autograder Script – Fall 2025
 % Version: v3.2.1
 %
 % Description:
-% This script automates grading for AE210 preliminary Design Project 
-% submissions (GE3) by processing Jet11 Excel files (*.xlsm). It evaluates 
+% This script automates grading for AE210 Draft Aircraft
+% submissions by processing Jet11 Excel files (*.xlsm). It evaluates
 % multiple design criteria, generates detailed feedback, and outputs both a
 % summary log and an optional Blackboard-compatible grade import file.
 %
@@ -31,7 +31,7 @@
 % Outputs:
 % - Text log file: textout_<timestamp>.txt
 % - Histogram of scores
-% - Optional Blackboard CSV: GE3_Blackboard_Offline_<timestamp>.csv
+% - Optional Blackboard CSV: DraftAircraft_Blackboard_Offline_<timestamp>.csv
 %
 % Embedded Functions:
 % - gradeCadet: Grades a single cadet's file and returns score and feedback
