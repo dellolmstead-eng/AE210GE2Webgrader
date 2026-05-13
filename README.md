@@ -14,5 +14,4 @@ Open `docs/test_runner.html` and compare results to MATLAB logs for the same wor
 
 ## Notes
 
-- GE2 keeps its own README/docs set; shared workbook templates (baseline/v3/YF-22) are symlinked from `CommonAssets/`.
-- If GE2 should consume the shared docs, let me know and I will link them.
+- GE2 now tracks its workbook templates and README/docs directly in this repo.

@@ -69,8 +69,28 @@ export const STRINGS = {
     vtOverlapMissing: "Unable to verify vertical tail overlap with wing due to missing geometry data",
     wingDeviceMissing: "Unable to verify %s wing placement due to missing geometry data",
     wingDeviceSpan: "%s extends outside the wing span in top view.",
-    wingDeviceEdge: "%s %s must align with the wing %s within %.2f ft in top view.",
-    wingDeviceEnvelope: "%s must remain within the wing planform envelope in top view.",
+    elevonEdge:
+      "Elevon aft edge must sit on the wing trailing edge in top view. Slide the elevon forward or aft until its aft edge stays on the wing trailing edge.",
+    elevonParallel:
+      "Elevon aft edge must be parallel to the wing trailing edge within %.1f° in top view.",
+    elevonEnvelope:
+      "Elevon forward edge must remain between the wing leading and trailing edges in top view.",
+    lefEdge:
+      "LE Flap forward edge must sit on the wing leading edge in top view. Slide the flap forward or aft until its forward edge stays on the wing leading edge.",
+    lefParallel:
+      "LE Flap forward edge must be parallel to the wing leading edge within %.1f° in top view.",
+    lefEnvelope:
+      "LE Flap aft edge must remain between the wing leading and trailing edges in top view.",
+    tefEdge:
+      "TE Flap aft edge must sit on the wing trailing edge in top view. Slide the flap forward or aft until its aft edge stays on the wing trailing edge.",
+    tefParallel:
+      "TE Flap aft edge must be parallel to the wing trailing edge within %.1f° in top view.",
+    tefEnvelope:
+      "TE Flap forward edge must remain between the wing leading and trailing edges in top view.",
+    minChordMissing:
+      "Unable to verify %s root/tip chord minimum due to missing geometry data.",
+    minChord:
+      "%s area is %.2f ft^2, so both root and tip chord must exceed 0.50 ft. Found root %.2f ft and tip %.2f ft.",
     pcsAR: "Pitch control surface aspect ratio (%.2f) must be lower than wing aspect ratio (%.2f).",
     vtAR: "Vertical tail aspect ratio (%.2f) must be lower than wing aspect ratio (%.2f).",
     engineWidth: "Fuselage minimum width (%.2f ft) must exceed engine diameter + 0.5 ft (%.2f ft).",
@@ -132,6 +152,7 @@ export const STRINGS = {
   summary: {
     score: "Jet11 Score is %d out of 10",
     cutout: "Cutout is 5 out of 5",
+    nonViableCap: "Jet11 score capped at %d out of 10 because the aircraft is non-viable (%s).",
   },
   structureErrors: {
     sheetMissing: 'Required sheet "%s" is missing.',

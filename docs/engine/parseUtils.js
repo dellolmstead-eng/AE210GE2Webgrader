@@ -1,4 +1,13 @@
+function getXlsx() {
+  const xlsx = globalThis.XLSX;
+  if (!xlsx) {
+    throw new Error("Spreadsheet library failed to load. Refresh the page and try again.");
+  }
+  return xlsx;
+}
+
 export function ensureMatrix(sheet) {
+  const XLSX = getXlsx();
   const range = XLSX.utils.decode_range(sheet["!ref"] || "A1");
   const rows = range.e.r + 1;
   const cols = range.e.c + 1;
@@ -39,6 +48,7 @@ function normalize(cell) {
 }
 
 export function getCell(matrix, ref) {
+  const XLSX = getXlsx();
   const { r, c } = XLSX.utils.decode_cell(ref);
   if (!matrix[r]) {
     return null;

@@ -1,5 +1,5 @@
 export const RULES = {
-  versionLabel: "AE210GE2Webgrader v3.2",
+  versionLabel: "DraftAircraft Grader 2025 v3.1",
   matlabVersion: "GE3_autograde_Olmstead_Fall_2025_v2",
   sheets: {
     Aero: {
@@ -29,7 +29,7 @@ export const RULES = {
         "K38", "L38", "M38", "N38", "P38", "R38", "S38", "V38", "W38",
         "K39", "L39", "M39", "N39", "P39", "R39", "S39", "V39", "W39",
         "B32", "C23", "C25", "H23",
-        "B27", "C27", "H27",
+        "B26", "C26", "H27",
         "D18", "D23", "D52", "F52",
         "H24", "H25", "E52"
       ],
@@ -41,7 +41,16 @@ export const RULES = {
       fallbackCells: ["J20", "L20", "L21", "M20", "M21", "N20", "N21"],
     },
     Geom: {
-      fallbackCells: ["C8", "C10", "M152", "K15", "L155", "L38", "L40", "L41", "N44", "L117", "L118", "N121"],
+      fallbackCells: [
+        "C7", "D7", "C8", "D8", "C10", "D10",
+        "K15", "L38", "L40", "L41", "N44",
+        "L152", "M152", "L155",
+        "L163", "L166",
+        "L174", "M174", "L175", "M175", "L176", "M176", "L177", "M177",
+        "L186", "M186", "L187", "M187", "L188", "M188", "L189", "M189",
+        "L198", "M198", "L199", "M199", "L200", "M200", "L201", "M201",
+        "L117", "L118", "N121"
+      ],
     },
   },
   macroWarningText: "This sheet has been saved as a .xlsx file which diables the macros in JET and makes Ps graphing impossible. Save as a macro enabled file outside your downloads folder for full functionality.",

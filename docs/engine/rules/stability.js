@@ -30,7 +30,7 @@ export function runStabilityChecks(workbook) {
     stabilityPass = false;
   }
 
-  if (!(ratio >= 0.3 && ratio <= 1)) {
+  if (!(Math.abs(ratio) >= 0.3 && Math.abs(ratio) <= 1)) {
     feedback.push(STRINGS.stability.ratio);
     stabilityPass = false;
   }

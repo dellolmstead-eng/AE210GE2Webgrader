@@ -60,13 +60,12 @@ async function gradeFile(file) {
     return;
   }
 
-  showStatus("Loading workbook...", "info");
-
   try {
     if (lowerName.endsWith(".xlsx")) {
       showMacroWarning();
     }
 
+    showStatus("Loading workbook...", "info");
     const workbook = await loadWorkbook(file, RULES);
     const result = gradeWorkbook(workbook, RULES);
 
@@ -90,6 +89,7 @@ function handleFiles(files) {
   }
   const [file] = files;
   gradeFile(file);
+  fileInput.value = "";
 }
 
 fileInput.addEventListener("change", (event) => {

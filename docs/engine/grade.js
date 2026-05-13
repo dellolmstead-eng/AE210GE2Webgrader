@@ -104,7 +104,19 @@ export function gradeWorkbook(workbook, rules) {
   score += gearResult.delta;
   feedback.push(...gearResult.feedback);
 
-  const clampedScore = Math.max(0, score);
+  let clampedScore = Math.max(0, score);
+  const nonViableReasons = [];
+  if (fuelResult.extraFuelFail) nonViableReasons.push("negative extra fuel");
+  if (fuelResult.volumeFail) nonViableReasons.push("insufficient volume remaining");
+  if (gearResult.takeoffSpeedFail) nonViableReasons.push("takeoff speed check failed");
+  if (nonViableReasons.length > 0) {
+    clampedScore = Math.min(clampedScore, 5);
+    feedback.push(
+      STRINGS.summary.nonViableCap
+        .replace("%d", "5")
+        .replace("%s", nonViableReasons.join(", "))
+    );
+  }
 
   const scoreLine = STRINGS.summary.score.replace("%d", clampedScore);
   const cutoutLine = STRINGS.summary.cutout;

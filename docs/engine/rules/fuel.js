@@ -7,6 +7,8 @@ const FUEL_TOL = 5e-2;
 export function runFuelVolumeChecks(workbook) {
   const feedback = [];
   let delta = 0;
+  let extraFuelFail = false;
+  let volumeFail = false;
 
   const main = workbook.sheets.main;
   const fuelAvailable = asNumber(getCell(main, "O18"));
@@ -23,6 +25,7 @@ export function runFuelVolumeChecks(workbook) {
   } else if (Number.isFinite(fuelExtra) && fuelExtra < -FUEL_TOL) {
     feedback.push(format(STRINGS.fuel.extraNegative, fuelExtra));
     delta -= 1;
+    extraFuelFail = true;
   }
 
   const volumeRemaining = asNumber(getCell(main, "Q23"));
@@ -31,7 +34,8 @@ export function runFuelVolumeChecks(workbook) {
       format(STRINGS.fuel.volume, volumeRemaining)
     );
     delta -= 1;
+    volumeFail = true;
   }
 
-  return { delta, feedback };
+  return { delta, feedback, extraFuelFail, volumeFail };
 }

@@ -1,5 +1,13 @@
 import { ensureMatrix } from "./parseUtils.js";
 
+function getXlsx() {
+  const xlsx = globalThis.XLSX;
+  if (!xlsx) {
+    throw new Error("Spreadsheet library failed to load. Refresh the page and try again.");
+  }
+  return xlsx;
+}
+
 async function readFileAsArrayBuffer(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -69,6 +77,7 @@ function normalizeCellValue(cell) {
 
 export async function loadWorkbook(file, rules) {
   const arrayBuffer = await readFileAsArrayBuffer(file);
+  const XLSX = getXlsx();
   const workbook = XLSX.read(arrayBuffer, { type: "array", cellDates: true });
 
   const sheetData = {

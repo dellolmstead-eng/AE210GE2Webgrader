@@ -7,6 +7,8 @@ const CORNER_REFLECTOR_TARGET = 45;
 const CORNER_REFLECTOR_TOL = 5;
 const CORNER_REFLECTOR_EDGE_TOL = 0.1;
 const EDGE_ALIGN_TOL = 0.2;
+const EDGE_PARALLEL_TOL = 3.0;
+const MIN_COMPONENT_CHORD = 0.5;
 
 export function runAttachmentChecks(workbook) {
   const feedback = [];
@@ -18,10 +20,31 @@ export function runAttachmentChecks(workbook) {
   const geom = workbook.sheets.geom;
 
   const fuselageLength = asNumber(getCell(main, "B32"));
+  const wingArea = asNumber(getCell(main, "B18"));
+  const wingRootChord = asNumber(getCell(geom, "C7"));
+  const wingTipChord = asNumber(getCell(geom, "D7"));
   const pcsArea = asNumber(getCell(main, "C18"));
   const pcsX = asNumber(getCell(main, "C23"));
   const pcsRootChord = asNumber(getCell(geom, "C8"));
+  const pcsTipChord = asNumber(getCell(geom, "D8"));
   let vtMountedOff = false;
+
+  const minChordChecks = [
+    ["Wing", wingArea, wingRootChord, wingTipChord],
+    ["Pitch control surface", pcsArea, pcsRootChord, pcsTipChord],
+  ];
+  for (const [name, area, rootChord, tipChord] of minChordChecks) {
+    if (Number.isFinite(area) && area >= 1) {
+      if (!Number.isFinite(rootChord) || !Number.isFinite(tipChord)) {
+        feedback.push(format(STRINGS.attachment.minChordMissing, name));
+        failures += 1;
+      } else if (rootChord <= MIN_COMPONENT_CHORD || tipChord <= MIN_COMPONENT_CHORD) {
+        feedback.push(format(STRINGS.attachment.minChord, name, area, rootChord, tipChord));
+        failures += 1;
+      }
+    }
+  }
+
   if (Number.isFinite(pcsArea) && pcsArea >= 1) {
     if (!Number.isFinite(fuselageLength) || !Number.isFinite(pcsX) || !Number.isFinite(pcsRootChord)) {
       feedback.push(STRINGS.attachment.pcsXMissing);
@@ -35,6 +58,16 @@ export function runAttachmentChecks(workbook) {
   const vtArea = asNumber(getCell(main, "H18"));
   const vtX = asNumber(getCell(main, "H23"));
   const vtRootChord = asNumber(getCell(geom, "C10"));
+  const vtTipChord = asNumber(getCell(geom, "D10"));
+  if (Number.isFinite(vtArea) && vtArea >= 1) {
+    if (!Number.isFinite(vtRootChord) || !Number.isFinite(vtTipChord)) {
+      feedback.push(format(STRINGS.attachment.minChordMissing, "Vertical tail"));
+      failures += 1;
+    } else if (vtRootChord <= MIN_COMPONENT_CHORD || vtTipChord <= MIN_COMPONENT_CHORD) {
+      feedback.push(format(STRINGS.attachment.minChord, "Vertical tail", vtArea, vtRootChord, vtTipChord));
+      failures += 1;
+    }
+  }
   if (Number.isFinite(vtArea) && vtArea >= 1) {
     if (!Number.isFinite(fuselageLength) || !Number.isFinite(vtX) || !Number.isFinite(vtRootChord)) {
       feedback.push(STRINGS.attachment.vtXMissing);
@@ -297,7 +330,6 @@ export function runAttachmentChecks(workbook) {
   const pcsDihedral = asNumber(getCell(main, "C26"));
   const vtTilt = asNumber(getCell(main, "H27"));
   const vtZ = asNumber(getCell(main, "H25"));
-  const wingArea = asNumber(getCell(main, "B18"));
   const pcsArea2 = asNumber(getCell(main, "C18"));
   const strakeArea2 = asNumber(getCell(main, "D18"));
   const vtArea2 = asNumber(getCell(main, "H18"));
@@ -486,7 +518,15 @@ function checkWingDevicePlacement(deviceName, edgeName, relevantA, relevantB, op
   const wingSpan = Math.max(wingLeadingRoot[1], wingLeadingTip[1], wingTrailingRoot[1], wingTrailingTip[1]);
   let spanFail = false;
   let edgeFail = false;
+  let parallelFail = false;
   let envelopeFail = false;
+  const targetEdgeA = edgeName === "leading edge" ? wingLeadingRoot : wingTrailingRoot;
+  const targetEdgeB = edgeName === "leading edge" ? wingLeadingTip : wingTrailingTip;
+  const targetAngle = edgeAngleDeg(targetEdgeA, targetEdgeB);
+  const deviceAngle = edgeAngleDeg(relevantInboard, relevantOutboard);
+  if (Number.isFinite(targetAngle) && Number.isFinite(deviceAngle)) {
+    parallelFail = smallestAngleDifferenceDeg(targetAngle, deviceAngle) > EDGE_PARALLEL_TOL;
+  }
 
   for (const pair of [
     [relevantInboard, oppositeInboard],
@@ -523,12 +563,49 @@ function checkWingDevicePlacement(deviceName, edgeName, relevantA, relevantB, op
     messages.push(format(STRINGS.attachment.wingDeviceSpan, deviceName));
   }
   if (edgeFail) {
-    messages.push(format(STRINGS.attachment.wingDeviceEdge, deviceName, edgeName, edgeName, EDGE_ALIGN_TOL));
+    messages.push(deviceEdgeMessage(deviceName));
+  }
+  if (parallelFail) {
+    messages.push(format(deviceParallelMessage(deviceName), EDGE_PARALLEL_TOL));
   }
   if (envelopeFail) {
-    messages.push(format(STRINGS.attachment.wingDeviceEnvelope, deviceName));
+    messages.push(deviceEnvelopeMessage(deviceName));
   }
-  return { failed: spanFail || edgeFail || envelopeFail, messages };
+  return { failed: spanFail || edgeFail || parallelFail || envelopeFail, messages };
+}
+
+function deviceEdgeMessage(deviceName) {
+  if (deviceName === "Elevon") return STRINGS.attachment.elevonEdge;
+  if (deviceName === "LE Flap") return STRINGS.attachment.lefEdge;
+  return STRINGS.attachment.tefEdge;
+}
+
+function deviceParallelMessage(deviceName) {
+  if (deviceName === "Elevon") return STRINGS.attachment.elevonParallel;
+  if (deviceName === "LE Flap") return STRINGS.attachment.lefParallel;
+  return STRINGS.attachment.tefParallel;
+}
+
+function deviceEnvelopeMessage(deviceName) {
+  if (deviceName === "Elevon") return STRINGS.attachment.elevonEnvelope;
+  if (deviceName === "LE Flap") return STRINGS.attachment.lefEnvelope;
+  return STRINGS.attachment.tefEnvelope;
+}
+
+function edgeAngleDeg(pointA, pointB) {
+  if (!pointA.every(Number.isFinite) || !pointB.every(Number.isFinite)) {
+    return Number.NaN;
+  }
+  return Math.atan2(pointB[0] - pointA[0], pointB[1] - pointA[1]) / DEG_TO_RAD;
+}
+
+function smallestAngleDifferenceDeg(angleA, angleB) {
+  let diff = Math.abs(angleA - angleB);
+  while (diff > 180) {
+    diff -= 360;
+  }
+  diff = Math.abs(diff);
+  return Math.min(diff, Math.abs(180 - diff));
 }
 
 function teNormalHitsCenterline(tipPoint, innerPoint, fuselageLength) {

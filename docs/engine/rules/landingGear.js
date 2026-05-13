@@ -5,6 +5,7 @@ import { format } from "../format.js";
 export function runLandingGearChecks(workbook) {
   const feedback = [];
   let good = true;
+  let takeoffSpeedFail = false;
 
   const gear = workbook.sheets.gear;
   const gearTolPercent = 0.5;
@@ -39,10 +40,12 @@ export function runLandingGearChecks(workbook) {
   if (!Number.isFinite(rotationAuthority) || !Number.isFinite(takeoffSpeed) || !(rotationAuthority < takeoffSpeed)) {
     feedback.push(format(STRINGS.gear.rotationAuthority, rotationAuthority, takeoffSpeed));
     good = false;
+    takeoffSpeedFail = true;
   }
   if (!Number.isFinite(takeoffSpeed) || takeoffSpeed >= 200 + gearTolSpeed) {
     feedback.push(format(STRINGS.gear.takeoffSpeed, takeoffSpeed));
     good = false;
+    takeoffSpeedFail = true;
   }
 
   let delta = 0;
@@ -51,5 +54,5 @@ export function runLandingGearChecks(workbook) {
     delta -= 1;
   }
 
-  return { delta, feedback };
+  return { delta, feedback, takeoffSpeedFail };
 }
