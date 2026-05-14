@@ -51,7 +51,7 @@ export const STRINGS = {
     curveError: "Could not perform constraint curve check due to error: %s",
   },
   attachment: {
-    pcsX: "PCS X-location too far aft. Must overlap at least 25% of root chord.",
+    pcsX: "PCS X-location too far aft. Must overlap the wing trailing edge by at least 25% of root chord.",
     pcsXMissing: "Unable to verify PCS placement due to missing geometry data",
     vtX: "VT X-location too far aft. Must overlap at least 25% of root chord.",
     vtXMissing: "Unable to verify vertical tail placement due to missing geometry data",
@@ -98,6 +98,8 @@ export const STRINGS = {
     pcsOverhang: "Pitch control surface extends %.2f ft beyond the fuselage end (limit %.2f ft based on fuselage width).",
     vtOverhang: "Vertical tail extends %.2f ft beyond the fuselage end (limit %.2f ft based on fuselage width).",
     engineProtrusion: "Engine nacelles protrude %.2f ft past the fuselage end (limit %.2f ft).",
+    engineAftFuselage: "Engine aft end is %.2f ft ahead of the fuselage aft end; limit is %.2f ft (two engine diameters).",
+    engineAftWing: "Engine aft end is %.2f ft ahead of the aft-most wing trailing edge; limit is %.2f ft (two engine diameters).",
     engineProtrusionMissing: "Unable to verify engine protrusion due to missing geometry data",
     stealthMissing: "Unable to verify stealth shaping due to missing geometry data",
     pcsSweepMatch: "Pitch control surface leading edge sweep %.1f° must match the wing leading edge sweep %.1f° (+/- %.1f°).",

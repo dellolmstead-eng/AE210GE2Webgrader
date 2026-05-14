@@ -731,6 +731,7 @@ end
 geometryFailures = 0;
 VALUE_TOL = 1e-3;
 AR_TOL = 0.1;
+PCS_WING_FRACTION = 0.25;
 VT_WING_FRACTION = 0.8;
 STEALTH_TOL = 5;
 EDGE_ALIGN_TOL = 0.2;
@@ -746,16 +747,18 @@ PCS_area = Main(18, 3);        % Pitch control surface area (C18)
 PCS_x = Main(23, 3);           % C23
 PCS_root_chord = Geom(8, 3);   % C8
 PCS_tip_chord = Geom(8, 4);    % D8
+wingTE = geomPlanformPoint(Geom, 41);
+wingTE_x = wingTE(1);
 
 [logText, geometryFailures] = checkMinChordRule(logText, geometryFailures, 'Wing', wing_area, wing_root_chord, wing_tip_chord, MIN_COMPONENT_CHORD);
 [logText, geometryFailures] = checkMinChordRule(logText, geometryFailures, 'Pitch control surface', PCS_area, PCS_root_chord, PCS_tip_chord, MIN_COMPONENT_CHORD);
 
 if PCS_area >= 1
-    if any(isnan([fuselage_end, PCS_x, PCS_root_chord]))
+    if any(isnan([wingTE_x, PCS_x, PCS_root_chord]))
         logText = logf(logText, 'Unable to verify PCS placement due to missing geometry data\n');
         geometryFailures = geometryFailures + 1;
-    elseif PCS_x > (fuselage_end - 0.25 * PCS_root_chord)
-        logText = logf(logText, 'PCS X-location too far aft. Must overlap at least 25%% of root chord.\n');
+    elseif PCS_x > (wingTE_x - PCS_WING_FRACTION * PCS_root_chord)
+        logText = logf(logText, 'PCS X-location too far aft. Must overlap the wing trailing edge by at least 25%% of root chord.\n');
         geometryFailures = geometryFailures + 1;
     end
 end
@@ -948,14 +951,28 @@ else
     end
 end
 
-if any(isnan([engine_diameter, fuselage_end, inlet_x, compressor_x, engine_length]))
+if any(isnan([engine_diameter, fuselage_end, inlet_x, compressor_x, engine_length, wingTrailingRoot(1), wingTrailingTip(1)]))
     logText = logf(logText, 'Unable to verify engine protrusion due to missing geometry data\n');
     geometryFailures = geometryFailures + 1;
 else
-    protrusion = inlet_x + compressor_x + engine_length - fuselage_end;
+    engine_aft = inlet_x + compressor_x + engine_length;
+    protrusion = engine_aft - fuselage_end;
     if protrusion > engine_diameter + VALUE_TOL
         logText = logf(logText, 'Engine nacelles protrude %.2f ft past the fuselage end (limit %.2f ft).\n', protrusion, engine_diameter);
         geometryFailures = geometryFailures + 1;
+    end
+    fuselage_aft_limit = fuselage_end - 2 * engine_diameter;
+    if engine_aft + VALUE_TOL < fuselage_aft_limit
+        logText = logf(logText, 'Engine aft end is %.2f ft ahead of the fuselage aft end; limit is %.2f ft (two engine diameters).\n', fuselage_end - engine_aft, 2 * engine_diameter);
+        geometryFailures = geometryFailures + 1;
+    end
+    wing_aft = max(wingTrailingRoot(1), wingTrailingTip(1));
+    if wingTrailingRoot(1) > fuselage_end + VALUE_TOL
+        wing_aft_limit = wing_aft - 2 * engine_diameter;
+        if engine_aft + VALUE_TOL < wing_aft_limit
+            logText = logf(logText, 'Engine aft end is %.2f ft ahead of the aft-most wing trailing edge; limit is %.2f ft (two engine diameters).\n', wing_aft - engine_aft, 2 * engine_diameter);
+            geometryFailures = geometryFailures + 1;
+        end
     end
 end
 
@@ -1092,6 +1109,7 @@ if stabilityPass == 0
     logText = logf(logText, '-1 Point Unstable! Adjust your aircraft to achieve flyable stability parameters by fixing red cells in Main M10-Q10.\n');
     pt=pt-1;
 end
+geometryCategoryFail = geometryFailures > 0 || stabilityPass == 0;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fuel and Volume Check (2 points)
@@ -1219,6 +1237,9 @@ if volumeFail
 end
 if takeoffSpeedFail
     nonViableReasons(end+1,1) = "takeoff speed check failed";
+end
+if geometryCategoryFail
+    nonViableReasons(end+1,1) = "geometry bucket failed";
 end
 if ~isempty(nonViableReasons)
     pt = min(pt, DRAFT_AIRCRAFT_CAP);

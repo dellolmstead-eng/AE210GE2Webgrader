@@ -105,10 +105,12 @@ export function gradeWorkbook(workbook, rules) {
   feedback.push(...gearResult.feedback);
 
   let clampedScore = Math.max(0, score);
+  const geometryCategoryFail = attachmentResult.delta < 0 || stabilityResult.delta < 0;
   const nonViableReasons = [];
   if (fuelResult.extraFuelFail) nonViableReasons.push("negative extra fuel");
   if (fuelResult.volumeFail) nonViableReasons.push("insufficient volume remaining");
   if (gearResult.takeoffSpeedFail) nonViableReasons.push("takeoff speed check failed");
+  if (geometryCategoryFail) nonViableReasons.push("geometry bucket failed");
   if (nonViableReasons.length > 0) {
     clampedScore = Math.min(clampedScore, 5);
     feedback.push(

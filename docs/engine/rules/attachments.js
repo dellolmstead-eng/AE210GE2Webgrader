@@ -9,6 +9,7 @@ const CORNER_REFLECTOR_EDGE_TOL = 0.1;
 const EDGE_ALIGN_TOL = 0.2;
 const EDGE_PARALLEL_TOL = 3.0;
 const MIN_COMPONENT_CHORD = 0.5;
+const PCS_WING_FRACTION = 0.25;
 
 export function runAttachmentChecks(workbook) {
   const feedback = [];
@@ -27,6 +28,7 @@ export function runAttachmentChecks(workbook) {
   const pcsX = asNumber(getCell(main, "C23"));
   const pcsRootChord = asNumber(getCell(geom, "C8"));
   const pcsTipChord = asNumber(getCell(geom, "D8"));
+  const wingTeX = asNumber(getCell(geom, "L41"));
   let vtMountedOff = false;
 
   const minChordChecks = [
@@ -46,12 +48,12 @@ export function runAttachmentChecks(workbook) {
   }
 
   if (Number.isFinite(pcsArea) && pcsArea >= 1) {
-    if (!Number.isFinite(fuselageLength) || !Number.isFinite(pcsX) || !Number.isFinite(pcsRootChord)) {
+    if (!Number.isFinite(wingTeX) || !Number.isFinite(pcsX) || !Number.isFinite(pcsRootChord)) {
       feedback.push(STRINGS.attachment.pcsXMissing);
       failures += 1;
-    } else if (pcsX > fuselageLength - 0.25 * pcsRootChord) {
+    } else if (pcsX > wingTeX - PCS_WING_FRACTION * pcsRootChord) {
       feedback.push(STRINGS.attachment.pcsX);
-      disconnected += 1;
+      failures += 1;
     }
   }
 
@@ -297,14 +299,26 @@ export function runAttachmentChecks(workbook) {
     !Number.isFinite(fuselageLength) ||
     !Number.isFinite(inletX) ||
     !Number.isFinite(compressorX) ||
-    !Number.isFinite(engineLength)
+    !Number.isFinite(engineLength) ||
+    !Number.isFinite(wingTrailingRoot[0]) ||
+    !Number.isFinite(wingTrailingTip[0])
   ) {
     feedback.push(STRINGS.attachment.engineProtrusionMissing);
     failures += 1;
   } else {
-    const protrusion = inletX + compressorX + engineLength - fuselageLength;
+    const engineAft = inletX + compressorX + engineLength;
+    const protrusion = engineAft - fuselageLength;
     if (protrusion > engineDiameter) {
       feedback.push(format(STRINGS.attachment.engineProtrusion, protrusion, engineDiameter));
+      failures += 1;
+    }
+    if (engineAft + 1e-3 < fuselageLength - 2 * engineDiameter) {
+      feedback.push(format(STRINGS.attachment.engineAftFuselage, fuselageLength - engineAft, 2 * engineDiameter));
+      failures += 1;
+    }
+    const wingAft = Math.max(wingTrailingRoot[0], wingTrailingTip[0]);
+    if (wingTrailingRoot[0] > fuselageLength + 1e-3 && engineAft + 1e-3 < wingAft - 2 * engineDiameter) {
+      feedback.push(format(STRINGS.attachment.engineAftWing, wingAft - engineAft, 2 * engineDiameter));
       failures += 1;
     }
   }
