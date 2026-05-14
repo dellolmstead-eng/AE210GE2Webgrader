@@ -28,7 +28,8 @@ export function runAttachmentChecks(workbook) {
   const pcsX = asNumber(getCell(main, "C23"));
   const pcsRootChord = asNumber(getCell(geom, "C8"));
   const pcsTipChord = asNumber(getCell(geom, "D8"));
-  const wingTeX = asNumber(getCell(geom, "L41"));
+  const wingRootTeX = asNumber(getCell(geom, "L41"));
+  const attachmentAft = Math.max(fuselageLength, wingRootTeX);
   let vtMountedOff = false;
 
   const minChordChecks = [
@@ -48,10 +49,10 @@ export function runAttachmentChecks(workbook) {
   }
 
   if (Number.isFinite(pcsArea) && pcsArea >= 1) {
-    if (!Number.isFinite(wingTeX) || !Number.isFinite(pcsX) || !Number.isFinite(pcsRootChord)) {
+    if (!Number.isFinite(attachmentAft) || !Number.isFinite(pcsX) || !Number.isFinite(pcsRootChord)) {
       feedback.push(STRINGS.attachment.pcsXMissing);
       failures += 1;
-    } else if (pcsX > wingTeX - PCS_WING_FRACTION * pcsRootChord) {
+    } else if (pcsX > attachmentAft - PCS_WING_FRACTION * pcsRootChord) {
       feedback.push(STRINGS.attachment.pcsX);
       failures += 1;
     }
@@ -71,10 +72,10 @@ export function runAttachmentChecks(workbook) {
     }
   }
   if (Number.isFinite(vtArea) && vtArea >= 1) {
-    if (!Number.isFinite(fuselageLength) || !Number.isFinite(vtX) || !Number.isFinite(vtRootChord)) {
+    if (!Number.isFinite(attachmentAft) || !Number.isFinite(vtX) || !Number.isFinite(vtRootChord)) {
       feedback.push(STRINGS.attachment.vtXMissing);
       failures += 1;
-    } else if (vtX > fuselageLength - 0.25 * vtRootChord) {
+    } else if (vtX > attachmentAft - 0.25 * vtRootChord) {
       feedback.push(STRINGS.attachment.vtX);
       disconnected += 1;
     }
@@ -103,6 +104,15 @@ export function runAttachmentChecks(workbook) {
       vtMountedOff = true;
       feedback.push(STRINGS.attachment.vtWing);
     }
+  }
+
+  const fuselageDiameter = Math.max(fuseWidth, fuseZHeight);
+  if (!Number.isFinite(fuselageLength) || !Number.isFinite(wingRootTeX) || !Number.isFinite(fuselageDiameter)) {
+    feedback.push(STRINGS.attachment.fuselageWingSupportMissing);
+    failures += 1;
+  } else if (wingRootTeX > fuselageLength && wingRootTeX - fuselageLength + 1e-3 >= fuselageDiameter) {
+    feedback.push(format(STRINGS.attachment.fuselageWingSupport, wingRootTeX - fuselageLength, fuselageDiameter));
+    failures += 1;
   }
 
   const strakeArea = asNumber(getCell(main, "D18"));

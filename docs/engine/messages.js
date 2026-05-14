@@ -51,7 +51,7 @@ export const STRINGS = {
     curveError: "Could not perform constraint curve check due to error: %s",
   },
   attachment: {
-    pcsX: "PCS X-location too far aft. Must overlap the wing trailing edge by at least 25% of root chord.",
+    pcsX: "PCS X-location too far aft. Must overlap the aft-most fuselage/wing-root attachment reference by at least 25% of root chord.",
     pcsXMissing: "Unable to verify PCS placement due to missing geometry data",
     vtX: "VT X-location too far aft. Must overlap at least 25% of root chord.",
     vtXMissing: "Unable to verify vertical tail placement due to missing geometry data",
@@ -63,6 +63,10 @@ export const STRINGS = {
     strakeMissing: "Unable to verify strake attachment due to missing geometry data",
     fuselage: "One or more components X-location extend beyond the fuselage end (B32 = %.2f)",
     fuselageMissing: "Unable to verify component X-location due to missing fuselage length",
+    fuselageWingSupport:
+      "Fuselage aft end is %.2f ft ahead of the wing root trailing edge; it must be less than one fuselage diameter (%.2f ft).",
+    fuselageWingSupportMissing:
+      "Unable to verify fuselage aft support at wing root trailing edge due to missing geometry data",
     deduction: "-1 Point Geometry/attachment/stealth issues detected; see notes above.",
     vtOverlap:
       "Vertical tail mounted on the wing must overlap at least 80% of its root chord with the wing trailing edge.",
