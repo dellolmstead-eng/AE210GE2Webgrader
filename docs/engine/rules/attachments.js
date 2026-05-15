@@ -322,13 +322,10 @@ export function runAttachmentChecks(workbook) {
       feedback.push(format(STRINGS.attachment.engineProtrusion, protrusion, engineDiameter));
       failures += 1;
     }
-    if (engineAft + 1e-3 < fuselageLength - 2 * engineDiameter) {
-      feedback.push(format(STRINGS.attachment.engineAftFuselage, fuselageLength - engineAft, 2 * engineDiameter));
-      failures += 1;
-    }
     const wingAft = Math.max(wingTrailingRoot[0], wingTrailingTip[0]);
-    if (wingTrailingRoot[0] > fuselageLength + 1e-3 && engineAft + 1e-3 < wingAft - 2 * engineDiameter) {
-      feedback.push(format(STRINGS.attachment.engineAftWing, wingAft - engineAft, 2 * engineDiameter));
+    const structureAft = Math.max(fuselageLength, wingAft);
+    if (engineAft + 1e-3 < structureAft - 2 * engineDiameter) {
+      feedback.push(format(STRINGS.attachment.engineAftStructure, structureAft - engineAft, 2 * engineDiameter));
       failures += 1;
     }
   }
